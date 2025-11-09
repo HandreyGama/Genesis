@@ -24,3 +24,4 @@ class DatasetColumns(Enum):
     pl_eqt = "pl_eqt"
     sy_dist = "sy_dist"
     st_logg = "st_logg"
+    disc_year = "disc_year"
