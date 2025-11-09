@@ -1,4 +1,5 @@
 import pandas as pd
+
 from src.models.Exoplaneta import Exoplaneta
 from src.const.genesis_consts import DatasetColumns
 
@@ -10,11 +11,11 @@ class DataHandler:
         DatasetColumns.sy_pnum.value: "planetas_numero",
         DatasetColumns.pl_orbper.value: "periodo_orbitas",
         DatasetColumns.pl_rade.value: "raio_planeta",
-        DatasetColumns.discoverymethod.value: "metodo_descoberta",
         DatasetColumns.pl_bmasse.value: "massa_planeta",
         DatasetColumns.pl_insol.value: "insolacao_planeta",
         DatasetColumns.pl_eqt.value: "temperatura_equilibrio_planeta",
         DatasetColumns.sy_dist.value: "distancia_planeta",
+        DatasetColumns.st_logg.value: "gravidade_planeta",
     }
 
     def __init__(self):
