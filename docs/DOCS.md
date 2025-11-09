@@ -19,3 +19,6 @@
     └── models
 ```
 
+## Classes:
+* Exoplaneta: classe de dados que possibilita calcular a provabilidade de vida baseado em distribuição normal e função gaussiana
+* 
