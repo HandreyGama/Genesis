@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='Genesis',
     version='',
-    packages=[''],
+    packages=['numpy','flask'],
     url='',
     license='',
     author='handrey',
