@@ -1,26 +1,34 @@
 import os
 from flask import Flask, render_template
-from flask import Flask
 from src.dataset.data_handler import DataHandler
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-
 CAMINHO_TEMPLATES = os.path.join(basedir,'src','frontend','templates')
 CAMINHO_STATIC = os.path.join(basedir,'src','frontend','static')
+CSV_PATH = os.path.join(basedir,'dataset','PS_2025.02.03_05.09.36.csv')
 
 app = Flask(__name__,
             template_folder=CAMINHO_TEMPLATES,
             static_folder=CAMINHO_STATIC)
 
-CSV_PATH = os.path.join(basedir,'data.csv','PS_2025.02.03_05.09.36.csv')
-
 data_handler = DataHandler()
 data_handler.load_planets_from_csv(CSV_PATH)
 @app.route("/")
 def home():
-    lista_planets = data_handler.get_planets()
-    lista_planets.sort(key=lambda x: x.calcular_probabilidade_vida(), reverse=True)
-    return render_template("index.html", planets=lista_planets)
+    todos_planetas = data_handler.get_planets()
+    todos_planetas.sort(key=lambda x: x.calcular_provabilidade_vida(), reverse=True)
+    dashboard = {
+        "Semelhante à Terra": [],
+        "Promissor": [],
+        "Possível": [],
+        "Improvavel": []
+    }
+
+    for planeta in todos_planetas:
+        categoria = planeta.categoria_habitabilidade()
+        if categoria in dashboard and len(dashboard[categoria]) < 4:
+            dashboard[categoria].append(planeta)
+    return render_template("index.html", dashboard=dashboard)
 
 
 if __name__ == "__main__":
