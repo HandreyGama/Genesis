@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Genesis - Exoplanetas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Projeto Genesis: Análise de Habitabilidade</h1>
+    <p>Listando exoplanetas ordenados pela probabilidade de vida.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome do Planeta</th>
+                <th>Score (0-1)</th>
+                <th>Categoria</th>
+                <th>Raio (Terras)</th>
+                <th>Ano Descoberta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for planeta in planetas %}
+            <tr>
+                <td>{{ planeta.nome_planeta }}</td>
+                <td class="high-score">{{ "%.2f"|format(planeta.calcular_provabilidade_vida()) }}</td>
+                <td>{{ planeta.categoria_habitabilidade() }}</td>
+                <td>{{ planeta.raio_planeta }}</td>
+                <td>{{ planeta.ano_descoberta }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

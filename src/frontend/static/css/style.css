@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+h1 {
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #007BFF;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.high-score {
+    color: green;
+    font-weight: bold;
+}

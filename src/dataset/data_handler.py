@@ -68,7 +68,7 @@ class DataHandler:
         print(f"Foram carregados {len(self.planetas)} planetas.")
                 
     def get_planets(self):
-        return self
+        return self.planetas
                     
 if __name__ == "__main__":
     print("data handler")
