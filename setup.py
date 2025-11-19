@@ -8,5 +8,5 @@ setup(
     license='',
     author='handrey',
     author_email='',
-    description='', install_requires=['flask', 'pandas']
+    description='', install_requires=['flask', 'pandas','numpy']
 )

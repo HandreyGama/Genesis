@@ -2,6 +2,7 @@ import pandas as pd
 
 from src.models.Exoplaneta import Exoplaneta
 from src.const.genesis_consts import DatasetColumns
+import os
 
 class DataHandler:
     COLUMN_MAP = {
@@ -72,7 +73,7 @@ class DataHandler:
                     
 if __name__ == "__main__":
     print("data handler")
-    caminho_csv = "C:\\Users\\andre\PycharmProjects\Genesis\dataset\PS_2025.02.03_05.09.36.csv"
+    caminho_csv = os.path.join("../../dataset/","PS_2025.02.03_05.09.36.csv")
     print(f"Carregando planetas: {caminho_csv}")
     handler_de_teste = DataHandler()
     handler_de_teste.load_planets_from_csv(caminho_csv)

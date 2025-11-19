@@ -36,6 +36,7 @@ class Exoplaneta():
     @property
     def set_nome_planeta(self,value):
         self.nome_planeta = value;
+
     @property
     def get_hostname_planeta(self):
         return self.hostname_planeta;
@@ -112,7 +113,6 @@ class Exoplaneta():
     @staticmethod
     def gaussian_abs(x,x_ref,sigma):
         return numpy.exp(- ((x - x_ref) ** 2) / (2 * (sigma ** 2)))
-
     def calcular_provabilidade_vida(self):
         w = {
             "raio": 0.18,
