@@ -2,7 +2,7 @@
   background-color: #000000;
   width: 100%;
   min-width: 1522px;
-  min-height: 942px;
+  min-height: 1000px;
   position: relative;
 }
 
@@ -18,8 +18,8 @@
 .landing-page .world {
   position: absolute;
   top: 0;
-  left: 1200px;
-  width: 800px;
+  left: 1100px;
+  width: 820px;
   height: 1000px;
 }
 
@@ -33,14 +33,16 @@
   background-image: url(https://c.animaapp.com/aPetIHpm/img/genesislogo--2--1@2x.png);
   background-size: cover;
   background-position: 50% 50%;
+  animation: fadeIn 5s;
 }
 
 .landing-page .texto-de-efeito {
   position: absolute;
   top: 316px;
-  left: 73px;
+  left: 100px;
   width: 623px;
   height: 213px;
+  animation: fadeIn 5s;
 }
 
 .landing-page .text-wrapper {
@@ -55,6 +57,7 @@
   font-size: 64px;
   letter-spacing: 0.50px;
   line-height: 44px;
+  animation: fadeIn 5s;
 }
 
 .landing-page .div {
@@ -80,9 +83,12 @@
   position: absolute;
   top: 62px;
   left: calc(50.00% - 171px);
+  transition: all 0.3s ease;
+  animation: fadeIn 5s;
 }
 
 .landing-page .text-wrapper-2 {
+  text-decoration: none;
   position: relative;
   width: fit-content;
   font-family: "Poppins", Helvetica;
@@ -92,8 +98,33 @@
   letter-spacing: 0;
   line-height: 17.2px;
   white-space: nowrap;
+  transition: all 0.3s ease;
 }
+.landing-page .text-wrapper-2:hover {
+    transform: translateY(-3px);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+}
+.landing-page .text-wrapper-2::before {
+    transform: translateY(-3px);
+    content: "";
+    background-color: #A6A6A6;
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 17.2px;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+    transform: scaleY(0);
+}
+.landing-page .text-wrapper-2:hover::before {
+    transform: scaleY(1);
 
+}
 .landing-page .text-wrapper-3 {
   position: relative;
   width: fit-content;
@@ -104,8 +135,31 @@
   letter-spacing: 0;
   line-height: 26.3px;
   white-space: nowrap;
+  transition: all 0.3s ease;
 }
-
+.landing-page .text-wrapper-3:hover {
+    transform: translateY(-5px);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+}
+.landing-page .text-wrapper-3::before {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 30.6px;
+  letter-spacing: 0;
+  line-height: 26.3px;
+  white-space: nowrap;
+  content: "";
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+.landing-page .text-wrapper-3:hover::before {
+    transform: scaleY(1);
+}
 .landing-page .explore {
   position: absolute;
   top: 570px;
@@ -113,6 +167,7 @@
   width: 226px;
   height: 80px;
   display: flex;
+
 }
 
 .landing-page .navegar {
@@ -127,4 +182,16 @@
   letter-spacing: 0.50px;
   line-height: 44px;
   white-space: nowrap;
+  transition: 0.4s;
+  border-radius: 5px;
+  animation: fadeIn 5s;
+}
+.landing-page .navegar:hover{
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
+  background: #d9d9d9;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
