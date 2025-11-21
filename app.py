@@ -30,6 +30,8 @@ def home():
             dashboard[categoria].append(planeta)
     return render_template("index.html", dashboard=dashboard)
 
-
+@app.route("/homepage")
+def homepage():
+    return render_template("homepage.html")
 if __name__ == "__main__":
     app.run(debug=True)
