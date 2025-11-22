@@ -13,8 +13,15 @@ app = Flask(__name__,
 
 data_handler = DataHandler()
 data_handler.load_planets_from_csv(CSV_PATH)
+
+
 @app.route("/")
-def home():
+def homepage():
+    return render_template("homepage.html")
+
+
+@app.route("/planetas")
+def planetas():
     todos_planetas = data_handler.get_planets()
     todos_planetas.sort(key=lambda x: x.calcular_provabilidade_vida(), reverse=True)
     dashboard = {
@@ -28,10 +35,7 @@ def home():
         categoria = planeta.categoria_habitabilidade()
         if categoria in dashboard and len(dashboard[categoria]) < 4:
             dashboard[categoria].append(planeta)
-    return render_template("index.html", dashboard=dashboard)
+    return render_template("planetas.html", dashboard=dashboard)
 
-@app.route("/homepage")
-def homepage():
-    return render_template("homepage.html")
 if __name__ == "__main__":
     app.run(debug=True)

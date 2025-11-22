@@ -16,7 +16,7 @@
       <img class="background" src="{{ url_for('static', filename='img/background.png') }}" alt="" role="presentation" />
       <img class="world" src="{{ url_for('static', filename='img/world.svg') }}" alt="Planeta Terra visto do espaço" />
       <header class="genesis-logo" role="banner">
-
+          <a href="{{ url_for('homepage') }}"></a>
       </header>
       <section class="texto-de-efeito" aria-labelledby="hero-title">
         <h1 class="text-wrapper" id="hero-title">Explore o universo</h1>
@@ -27,14 +27,17 @@
       <nav class="navbar" aria-label="Navegação principal">
         <a href="#projeto" class="text-wrapper-2">Projeto</a>
         <a href="#espaco" class="text-wrapper-2">Espaço</a>
-        <a href="#planetas" class="text-wrapper-2">Planetas</a>
+        <a href="{{ url_for('planetas') }}" class="text-wrapper-2">Planetas</a>
         <a href="#home" class="text-wrapper-3" aria-current="page">Home</a>
         <a href="#astros" class="text-wrapper-2">Astros</a>
         <a href="#missoes" class="text-wrapper-2">Missões</a>
       </nav>
       <div class="explore">
-        <a href="#navegar" class="navegar">Navegar &gt;</a>
+        <a href="{{ url_for('planetas') }}" class="navegar">Navegar &gt;</a>
       </div>
+        <a class="github-link" href="https://github.com/HandreyGama/Genesis" target="_blank" rel="noopener noreferrer">
+            <img class="github" src="{{ url_for('static', filename='img/GitHub.png') }}" alt="GitHub">
+        </a>
     </main>
   </body>
 </html>
