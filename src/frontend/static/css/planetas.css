@@ -365,3 +365,92 @@ body {
     margin-bottom: 30px;
     font-weight: bold;
 }
+
+.botao_download {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.botao_download:hover{
+        transform: scale(1.1);
+}
+
+.botao-download-icone {
+    width: 50px;
+    height: 40px;
+}
+
+
+.aviso-box {
+
+    display: none;
+
+    position: fixed;
+    bottom: 100px;
+    left: 30px;
+
+
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    min-width: 250px;
+    font-family: "Poppins", Helvetica;
+}
+
+
+.aviso-box p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+
+.aviso-botoes-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+
+.botao-sim, .botao-nao {
+
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+
+.botao-sim {
+    border-color: #28a745;
+}
+.botao-nao {
+    border-color: #dc3545;
+}
+
+.botao-sim:hover {
+    background-color: #28a745;
+}
+
+.botao-nao:hover {
+    background-color: #dc3545;
+}

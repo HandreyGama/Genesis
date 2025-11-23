@@ -9,7 +9,8 @@
     />
     <title>Genesis - Explore o Universo</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/planetas.css') }}" />
-    <script src="{{ url_for('static', filename="js/carrossel.js") }}"></script>
+      <script src="{{ url_for('static', filename='js/carrossel.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/downloadButtom.js') }}"></script>
   </head>
   <body>
     <main>
@@ -30,7 +31,7 @@
                 {% for categoria, lista_planetas in dashboard.items() %}
                     {% for p in lista_planetas%}
                         <div class="planet-slide" data-index="{{ loop.index0 }}">
-                            <img src="{{ url_for('static', filename='img/' ~ p.nome_planeta ~ '.png') }}" alt="{{ p.nome_planeta }}">
+                            <img src="{{ url_for('static', filename='img/planets/' ~ p.nome_planeta ~ '.png') }}" alt="{{ p.nome_planeta }}">
                             <h2>{{ p.nome_planeta }}</h2>
                         </div>
                     {% endfor %}
@@ -120,5 +121,20 @@
         </div>
 
     </main>
+
+    <button id="trigger-download-btn" class="botao_download">
+             <img class="botao-download-icone" src="{{ url_for('static', filename='img/download.png')}}" alt="Baixar Dataset">
+    </button>
+
+    <div id="aviso-download-box" class="aviso-box">
+             <p>Deseja baixar o dataset 2025.02.03_05.09.36.csv?</p>
+             <div class="aviso-botoes-container">
+                                     <button id="botao-sim" class="botao-sim"
+                   data-download-url="{{ url_for('download_dataset', filename='PS_2025.02.03_05.09.36.csv') }}">
+                Sim
+            </button>
+
+                 <button id="botao-nao" class="botao-nao">Não</button></div>
+    </div>
   </body>
 </html>

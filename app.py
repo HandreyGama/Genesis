@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from src.dataset.data_handler import DataHandler
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -36,6 +36,38 @@ def planetas():
         if categoria in dashboard and len(dashboard[categoria]) < 4:
             dashboard[categoria].append(planeta)
     return render_template("planetas.html", dashboard=dashboard)
+
+@app.route("/teste")
+def teste():
+    todos_planetas = data_handler.get_planets()
+    todos_planetas.sort(key=lambda x: x.calcular_provabilidade_vida(), reverse=True)
+    dashboard = {
+        "Semelhante à Terra": [],
+        "Promissor": [],
+        "Possível": [],
+        "Improvavel": []
+    }
+
+    for planeta in todos_planetas:
+        categoria = planeta.categoria_habitabilidade()
+        if categoria in dashboard and len(dashboard[categoria]) < 4:
+            dashboard[categoria].append(planeta)
+    return render_template("index.html", dashboard=dashboard)
+
+
+DOWNLOAD_DIRECTORY = os.path.abspath('dataset')
+@app.route('/planetas/download/<filename>')
+def download_dataset(filename):
+
+    try:
+        return send_from_directory(
+            DOWNLOAD_DIRECTORY,
+            filename,
+            as_attachment=True  # CRÍTICO: Força o download
+        )
+    except FileNotFoundError:
+        # Retorna erro 404 se o arquivo não for encontrado na pasta
+        return "Arquivo não encontrado", 404
 
 if __name__ == "__main__":
     app.run(debug=True)
