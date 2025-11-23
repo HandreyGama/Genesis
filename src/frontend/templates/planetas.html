@@ -123,18 +123,19 @@
     </main>
 
     <button id="trigger-download-btn" class="botao_download">
-             <img class="botao-download-icone" src="{{ url_for('static', filename='img/download.png')}}" alt="Baixar Dataset">
+            <img class="botao-download-icone" src="{{ url_for('static', filename='img/download.png')}}" alt="Baixar Dataset">
     </button>
 
     <div id="aviso-download-box" class="aviso-box">
              <p>Deseja baixar o dataset 2025.02.03_05.09.36.csv?</p>
              <div class="aviso-botoes-container">
-                                     <button id="botao-sim" class="botao-sim"
+                     <button id="botao-sim" class="botao-sim"
                    data-download-url="{{ url_for('download_dataset', filename='PS_2025.02.03_05.09.36.csv') }}">
                 Sim
             </button>
 
-                 <button id="botao-nao" class="botao-nao">Não</button></div>
+                     <button id="botao-nao" class="botao-nao">Não</button>
+             </div>
     </div>
   </body>
 </html>
