@@ -167,12 +167,18 @@ class Exoplaneta():
         return score
 
     def categoria_habitabilidade(self):
+        if self.raio_planeta <= 0 or self.massa_planeta <= 0:
+            return "Incerto"
+        if self.temperatura_equilibrio_planeta > 450 or self.raio_planeta > 2.5:
+            return "Hostil"
         p = self.calcular_provabilidade_vida()
         if p >= 0.75:
             return "Semelhante à Terra"
         elif p >= 0.5:
             return "Promissor"
-        elif p >= 0.25:
+        elif p >= 0.35:
             return "Possível"
-        else:
+        elif p >= 0.15:
             return "Improvável"
+        else:
+            return "Hostil"

@@ -45,7 +45,9 @@ def teste():
         "Semelhante à Terra": [],
         "Promissor": [],
         "Possível": [],
-        "Improvavel": []
+        "Improvavel": [],
+        "Hostil": [],
+        "Incerto": []
     }
 
     for planeta in todos_planetas:
