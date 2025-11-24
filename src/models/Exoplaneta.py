@@ -182,3 +182,4 @@ class Exoplaneta():
             return "Improvável"
         else:
             return "Hostil"
+        #TESTE123

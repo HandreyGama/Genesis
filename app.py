@@ -55,6 +55,7 @@ def teste():
         if categoria in dashboard and len(dashboard[categoria]) < 4:
             dashboard[categoria].append(planeta)
     return render_template("index.html", dashboard=dashboard)
+# IMPOSSIVEL RESPIRAR PELA BOCA COM A LINGUA PRA FORA
 
 
 DOWNLOAD_DIRECTORY = os.path.abspath('dataset')
