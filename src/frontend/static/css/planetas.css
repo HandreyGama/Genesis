@@ -267,12 +267,12 @@ body {
     border-radius: 10px;
     z-index: 20;
 
-    top: 50%; /* Começa no meio vertical do slide */
-    left: 50%; /* Começa no meio horizontal do slide */
+    top: 50%;
+    left: 50%;
 
-    /* Centraliza o painel exatamente no centro */
+
     transform: translate(-50%, -50%);
-    /* Propriedades para esconder/mostrar adicionadas aqui */
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
