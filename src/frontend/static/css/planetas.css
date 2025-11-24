@@ -7,7 +7,6 @@ main{
     flex-direction: column;
     align-items: center;
     position: relative;
-
     font-family: "Poppins", Helvetica;
     color: white;
 }
@@ -232,8 +231,10 @@ body {
     transform: scale(0.8);
     cursor: pointer;
     flex-shrink: 0;
+    z-index: 1;
 
 }
+
 
 .planet-slide h2 {
     color: white;
@@ -253,6 +254,61 @@ body {
     height: auto;
     display: block;
 
+}
+.planet-slide .painel-planet{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    gap: 10px;
+    background-color: black;
+    border-radius: 10px;
+    z-index: 20;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    /* Propriedades para esconder/mostrar adicionadas aqui */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.painel-planet.mostrar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.label_planet{
+    text-align: center;
+}
+.btn_compare, .btn_sabermais{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+.icon_mini{
+    width: 36px;
+    height: 36px;
+}
+.btn_compare:hover{
+    background-color: #333333;
+    transition: ease-out,0.3ms;
+}
+.btn_sabermais:hover{
+     background-color: #333333;
+    transition: ease-out,0.3ms;
 }
 
 .nav-button {
