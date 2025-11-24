@@ -29,7 +29,7 @@
         <div class="carousel-visuals-wrapper">
             <div class="carousel-visuals">
                 {% for categoria, lista_planetas in dashboard.items() %}
-                    {% for p in lista_planetas%}
+                     {% for p in lista_planetas %}
                         <div class="planet-slide" data-index="{{ loop.index0 }}">
                             <img src="{{ url_for('static', filename='img/planets/' ~ p.nome_planeta ~ '.png') }}" alt="{{ p.nome_planeta }}">
                             <h2>{{ p.nome_planeta }}</h2>
@@ -39,10 +39,10 @@
             </div>
 
             <button class="nav-button prev-button">
-                <img src="{{ url_for('static', filename="img/left.png") }}" alt="Anterior">
+                <img src="{{ url_for('static', filename='img/left.png') }}" alt="Anterior">
             </button>
             <button class="nav-button next-button">
-                <img src="{{ url_for('static', filename="img/rigth.png") }}" alt="Próximo">
+                <img src="{{ url_for('static', filename='img/rigth.png') }}" alt="Próximo">
             </button>
         </div>
 
