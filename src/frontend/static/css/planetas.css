@@ -152,7 +152,7 @@ body {
   color: #ffffff;
   font-size: 30.6px;
   letter-spacing: 0;
-  line-height: 26.3px;
+  line-height: 20vw;
   white-space: nowrap;
   content: "";
   transform: scaleY(0);
@@ -221,7 +221,7 @@ body {
     align-items: flex-end;
     position: absolute;
     transform: translateX(0);
-    right: 600px;
+    right: 50%;
     transition: transform 0.5s ease-in-out;
 }
 
