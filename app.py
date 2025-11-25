@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, send_from_directory
 from src.dataset.data_handler import DataHandler
 
+from src.backend.AiIntegration import Ai
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 CAMINHO_TEMPLATES = os.path.join(basedir,'src','frontend','templates')
 CAMINHO_STATIC = os.path.join(basedir,'src','frontend','static')
@@ -75,7 +77,11 @@ def download_dataset(filename):
 @app.route('/planetas/aboutmore/<nome_planeta>')
 def aboutmore(nome_planeta):
 
-    return render_template("about-planet.html")
+    ia = Ai()
+    resposta_ia = ia.PerguntarChat(nome_planeta)
+
+    planeta_changed = data_handler.get_planet_por_nome(nome_planeta)
+    return render_template("about-planet.html", planeta_changed=planeta_changed, resposta_ia=resposta_ia)
 
 if __name__ == "__main__":
     app.run(debug=True)

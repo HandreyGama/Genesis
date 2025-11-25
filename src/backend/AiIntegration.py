@@ -23,6 +23,3 @@ class Ai():
         }
         r = requests.post(self.URL,json=model_data,headers=self.headers)
         return r.json()["choices"][0]["message"]["content"]
-
-ai = Ai()
-print(ai.PerguntarChat("TRAPPIST-1e"))

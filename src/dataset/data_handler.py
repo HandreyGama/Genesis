@@ -75,8 +75,15 @@ class DataHandler:
                 
     def get_planets(self):
         return self.planetas
+
+    def get_planet_por_nome(self, nome_planeta):
+        for p in self.planetas:
+            if nome_planeta == p.nome_planeta:
+                return p
+        return None
                     
 if __name__ == "__main__":
+
     print("data handler")
     caminho_csv = os.path.join(file_original_path,"..","..","dataset","PS_2025.02.03_05.09.36.csv")
     caminho_csv = os.path.normpath(caminho_csv)
@@ -91,4 +98,5 @@ if __name__ == "__main__":
             print(f"{planeta.get_nome_planeta()}")
     else:
         print("deu ruim")
+
 
