@@ -311,6 +311,10 @@ body {
      background-color: #333333;
     transition: ease-out,0.3ms;
 }
+.btn_sabermais a, a:visited{
+    text-decoration: none;
+    color: white;
+}
 
 .nav-button {
     border: none;
