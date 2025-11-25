@@ -29,6 +29,9 @@ class DataHandler:
         print(f"Carregando dados de {csv_path}")
         try:
             df = pd.read_csv(csv_path, comment="#", low_memory=False)
+            df["filled_count"] = df.notna().sum(axis=1)
+            df = df.loc[df.groupby("pl_name")["filled_count"].idxmax()]
+            df.drop(columns=["filled_count"])
         except FileNotFoundError:
             print(f"Arquivo não encontrado: {csv_path}")
             return
