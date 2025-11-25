@@ -43,7 +43,10 @@
                                     </button>
                                     <button class="btn_sabermais">
                                         <img class="icon_mini" src="{{ url_for('static', filename='img/Info.png') }}">
-                                        <p>Saber mais sobre {{p.nome_planeta}}</p>
+                                        <a href="{{ url_for('aboutmore',nome_planeta=p.nome_planeta) }}">
+                                            <p>Saber mais sobre {{p.nome_planeta}}</p>
+                                        </a>
+
                                     </button>
 
                                 </div>

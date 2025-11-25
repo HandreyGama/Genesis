@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, send_from_directory
 from src.dataset.data_handler import DataHandler
 
+from src.backend.AiIntegration import Ai
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 CAMINHO_TEMPLATES = os.path.join(basedir,'src','frontend','templates')
 CAMINHO_STATIC = os.path.join(basedir,'src','frontend','static')
@@ -19,7 +21,7 @@ data_handler.load_planets_from_csv(CSV_PATH)
 def homepage():
     return render_template("homepage.html")
 
-
+dashboard = {}
 @app.route("/planetas")
 def planetas():
     todos_planetas = data_handler.get_planets()
@@ -66,11 +68,20 @@ def download_dataset(filename):
         return send_from_directory(
             DOWNLOAD_DIRECTORY,
             filename,
-            as_attachment=True  # CRÍTICO: Força o download
+            as_attachment=True
         )
     except FileNotFoundError:
-        # Retorna erro 404 se o arquivo não for encontrado na pasta
+
         return "Arquivo não encontrado", 404
+
+@app.route('/planetas/aboutmore/<nome_planeta>')
+def aboutmore(nome_planeta):
+
+    ia = Ai()
+    resposta_ia = ia.PerguntarChat(nome_planeta)
+
+    planeta_changed = data_handler.get_planet_por_nome(nome_planeta)
+    return render_template("about-planet.html", planeta_changed=planeta_changed, resposta_ia=resposta_ia)
 
 if __name__ == "__main__":
     app.run(debug=True)

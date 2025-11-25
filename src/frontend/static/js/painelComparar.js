@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
     document.addEventListener('click', (event) => {
         const todosOsPaneis = document.querySelectorAll('.painel-planet');
 
