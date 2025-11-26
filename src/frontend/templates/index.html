@@ -25,13 +25,12 @@
             background-color: #000000;
         }
 
-        /* === HERO SECTION === */
         .hero-container {
             position: relative;
             width: 100%;
-            height: 100vh;
+            height: 85vh;
             overflow: hidden;
-            z-index: 2; /* Fica acima do dashboard */
+            z-index: 2;
         }
 
         .hero-bg {
@@ -55,7 +54,6 @@
             z-index: 2;
         }
 
-        /* Wrapper do Conteúdo */
         .hero-content-wrapper {
             position: absolute;
             top: 0;
@@ -69,10 +67,9 @@
             gap: 30px;
         }
 
-        /* Logo */
         .genesis-logo {
-            width: 200px;
-            height: 90px;
+            width: 300px;
+            height: 140px;
             background-image: url('https://c.animaapp.com/aPetIHpm/img/genesislogo--2--1@2x.png');
             background-size: contain;
             background-repeat: no-repeat;
@@ -80,7 +77,6 @@
         }
         .genesis-logo a { display: block; width: 100%; height: 100%; }
 
-        /* Texto */
         .texto-de-efeito {
             color: white;
             position: relative;
@@ -100,7 +96,6 @@
             opacity: 0.9;
         }
 
-        /* Botão */
         .explore { display: inline-block; }
         .navegar {
             font-size: 20px;
@@ -118,23 +113,23 @@
         }
         .navegar:hover { background: white; color: black; border-color: white; }
 
-        /* Menu */
         .navbar {
             position: absolute;
             top: 40px;
             right: 5%;
             z-index: 20;
             display: flex;
-            gap: 30px;
+            gap: 50px;
         }
         .navbar a {
             color: white;
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 32px;
+            font-weight: 700;
             text-decoration: none;
             position: relative;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
         .navbar a::before {
             content: "";
@@ -142,24 +137,21 @@
             bottom: -5px;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 3px;
             background-color: white;
             transition: width 0.3s;
         }
         .navbar a:hover::before { width: 100%; }
 
-
-        /* === DASHBOARD / CARDS COM ESPELHO === */
         .dashboard-section {
             position: relative;
             min-height: 100vh;
-            padding: 80px 5%;
+            padding: 60px 5%;
             z-index: 1;
             overflow: hidden;
-            background-color: black; /* Fundo de segurança */
+            background-color: black;
         }
 
-        /* O FUNDO ESPELHADO */
         .mirror-background {
             position: absolute;
             top: 0;
@@ -169,7 +161,6 @@
             z-index: 0;
         }
 
-        /* A Imagem de Fundo Invertida */
         .mirror-img {
             position: absolute;
             top: 0;
@@ -177,31 +168,25 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transform: scaleY(-1); /* Inverte verticalmente */
+            transform: scaleY(-1);
             z-index: 1;
-            opacity: 0.7; /* Leve transparência para não brigar com o texto */
+            opacity: 0.7;
         }
 
-        /* O PLANETA ESPELHADO (NOVIDADE) */
         .mirror-world {
             position: absolute;
-            top: 0; /* Começa no topo da seção de baixo (colado no rodapé da seção de cima) */
+            top: 0;
             right: 0;
-            height: 100vh; /* Mesma altura que o original */
+            height: 100vh;
             width: auto;
             max-width: 60%;
             object-fit: cover;
-
-            /* O TRUQUE: Inverte para parecer reflexo */
             transform: scaleY(-1);
-
-            z-index: 2; /* Fica acima das estrelas, mas abaixo dos cards */
-            pointer-events: none; /* Não atrapalha cliques */
-            opacity: 0.8; /* Um pouco mais sutil que o original */
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.8;
         }
 
-
-        /* Conteúdo do Dashboard */
         .dashboard-content-wrapper {
             position: relative;
             z-index: 5;
@@ -214,7 +199,7 @@
             font-size: 36px;
             text-align: center;
             margin-bottom: 50px;
-            text-shadow: 0 4px 10px rgba(0,0,0,1); /* Sombra mais forte para ler sem overlay */
+            text-shadow: 0 4px 10px rgba(0,0,0,1);
         }
 
         .cards-container {
@@ -225,7 +210,7 @@
         }
 
         .planet-card {
-            background: rgba(10, 10, 10, 0.7); /* Mais escuro para contraste sem overlay */
+            background: rgba(10, 10, 10, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             padding: 25px;
@@ -248,6 +233,37 @@
         .score-med { color: #facc15; }
         .score-low { color: #f87171; }
         .card-details { display: flex; justify-content: space-between; font-size: 12px; color: #ddd; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; }
+
+        .site-footer {
+            position: relative;
+            z-index: 10;
+            background-color: #000000;
+            border-top: 1px solid #222;
+            padding: 40px 5%;
+            text-align: center;
+            color: #888;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: #4a90e2; }
 
     </style>
   </head>
@@ -286,7 +302,6 @@
 
           <div class="mirror-background">
               <img class="mirror-img" src="{{ url_for('static', filename='img/background.png') }}" alt="" role="presentation" />
-
               <img class="mirror-world" src="{{ url_for('static', filename='img/world.svg') }}" alt="" role="presentation" />
           </div>
 
@@ -317,8 +332,17 @@
           </div>
       </section>
 
+      <footer class="site-footer">
+          <div class="footer-content">
+              <p>&copy; 2025 Projeto Genesis. Todos os direitos reservados.</p>
+              <div class="footer-links">
+                  <a href="#">GitHub</a>
+                  <a href="#">Documentação</a>
+                  <a href="#">Contato</a>
+              </div>
+          </div>
+      </footer>
+
     </main>
   </body>
 </html>
-
-#comitt
