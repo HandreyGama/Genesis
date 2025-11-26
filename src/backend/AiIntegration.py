@@ -16,7 +16,9 @@ class Ai():
         como foi descoberto,quem descobriu,aonde descobriram,se possivel deixe essa parte mais detalhada do que as outras
         as outras podem ser mais curtas,artigos cientificos se tiver relacionados a ele,noticias, e em que localização ele se encontra,
         caso não ache uma das informaçõesa,
-        apenas não mencione nada,ou seja NÃO ESCREVA NADA NA SUA RESPOSTA,somente diga as informações que encontrou """
+        apenas não mencione nada,ou seja NÃO ESCREVA NADA NA SUA RESPOSTA,somente diga as informações que encontrou e além disso dentro da sua resposta
+        quero que você coloque tags de marcação que formatem o texto dentro de uma tag <p> em html e quero que os tópicos que você for mandar
+        mande dentro da seguinte tag <h1 class="label_planet"></h1> e os parágrafos com <p class="p-ia">"""
         model_data = {
             "model": "llama-3.1-8b-instant",
             "messages": [{"role": "user", "content": prompt}]
