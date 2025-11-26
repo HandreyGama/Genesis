@@ -8,7 +8,7 @@
           content="Explore o universo e descubra exoplanetas já descobertos e a probabilidade de vida neles."
         />
         <title>Genesis - Explore o Universo</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/planetas.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/planetas.css') }}" />]
           <script src="{{ url_for('static', filename='js/carrossel.js') }}"></script>
           <script src="{{ url_for('static', filename='js/downloadButtom.js') }}"></script>
           <script src="{{ url_for('static', filename='js/painelComparar.js') }}"></script>
@@ -20,11 +20,9 @@
           </header>
           <nav class="navbar" aria-label="Navegação principal">
             <a href="#projeto" class="text-wrapper-2">Projeto</a>
+            <a href="{{ url_for('planetas') }}">Planetas</a>
             <a href="#espaco" class="text-wrapper-2">Espaço</a>
-            <a href="#planetas" class="text-wrapper-2">Planetas</a>
-            <a href="#home" class="text-wrapper-3" aria-current="page">Home</a>
-            <a href="#astros" class="text-wrapper-2">Astros</a>
-            <a href="#missoes" class="text-wrapper-2">Missões</a>
+            <a href="{{ url_for('homepage') }}">Home</a>
           </nav>
 
             <div class="carousel-visuals-wrapper">
@@ -96,14 +94,17 @@
                                             <div class="data-label">Probabilidade de vida</div>
                                             <div class="data-value">{{ p.categoria_habitabilidade() }}</div>
                                         </div>
+
+                                        <div class="data-row">
+                                            <div class="data-label">Probabilidade (Índice)</div>
+                                            <div class="data-value">{{ p.calcular_provabilidade_vida() | round(2) }}</div>
+                                        </div>
+
                                         <div class="data-row">
                                             <div class="data-label">Temperatura</div>
                                             <div class="data-value">{{ p.temperatura_equilibrio_planeta }}K°</div>
                                         </div>
-                                        <div class="data-row">
-                                            <div class="data-label">Número de estrelas</div>
-                                            <div class="data-value">{{ p.estrelas_numeros }}</div>
-                                        </div>
+
                                         <div class="data-row">
                                             <div class="data-label">Distância da terra</div>
                                             <div class="data-value">{{ p.distancia_planeta }}</div>

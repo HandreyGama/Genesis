@@ -1,239 +1,161 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <title>Genesis - Teste de Design</title>
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/planetas.css') }}" />
-
-    <script src="{{ url_for('static', filename='js/carrossel.js') }}"></script>
-
-    <style>
-        /* === CORREÇÃO DO FUNDO === */
-        body {
-            background-color: #000;
-            background-image: url("{{ url_for('static', filename='img/background.png') }}");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        /* === TRANSFORMAÇÃO DO CARD (O Pulo do Gato) === */
-        /* Estamos pegando a classe .card que o carrossel usa e mudando o visual dela */
-
-        .card-novo {
-            /* 1. Tamanho e Espaçamento (Mantém compatível com carrossel) */
-            flex: 0 0 auto;
-            width: 280px;
-            margin: 10px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            /* 2. O Visual "Glassmorphism" da Home */
-            background: rgba(255, 255, 255, 0.05); /* Fundo translúcido */
-            backdrop-filter: blur(10px);           /* Desfoque do fundo */
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.15); /* Borda fina */
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); /* Sombra suave */
-
-            /* 3. Comportamento */
-            color: white;
-            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s;
-        }
-
-        /* Efeito Hover igual da Home */
-        .card-novo:hover {
-            transform: translateY(-10px);
-            border-color: #4a90e2;
-            background: rgba(40, 40, 40, 0.8);
-        }
-
-        /* === ESTILIZAÇÃO INTERNA DO CARD === */
-
-        /* Imagem Redonda no Topo */
-        .card-img-wrapper {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.1);
-            margin-bottom: 15px;
-            background-color: #000;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        }
-        .card-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Título e Score */
-        .card-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .card-score-box {
-            text-align: center;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            width: 100%;
-            padding-bottom: 10px;
-        }
-
-        .score-val {
-            font-size: 32px;
-            font-weight: 700;
-        }
-        .score-high { color: #4ade80; text-shadow: 0 0 10px rgba(74, 222, 128, 0.3); }
-        .score-med { color: #facc15; }
-        .score-low { color: #f87171; }
-
-        /* Grid de Informações (Raio, Massa, etc) */
-        .card-info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            width: 100%;
-        }
-
-        .info-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 8px;
-            text-align: center;
-        }
-
-        .info-label {
-            font-size: 10px;
-            color: #aaa;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        .info-value {
-            font-size: 12px;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        /* Ajustes de Títulos da Página */
-        .section-header {
-            margin-left: 5%;
-            margin-bottom: 20px;
-            border-left: 4px solid #4a90e2;
-            padding-left: 15px;
-        }
-        .cat-title { font-size: 32px; font-weight: bold; color: white; text-transform: uppercase; }
-        .sys-title { font-size: 20px; color: #ccc; margin-top: 30px; margin-left: 60px; margin-bottom: 10px; }
-
-    </style>
-  </head>
-
-  <body>
-    <main class="landing-page">
-
-      <div class="hero-container" style="height: 50vh;">
-          <img class="hero-bg" src="{{ url_for('static', filename='img/background.png') }}" alt="" role="presentation" />
-          <img class="hero-world" src="{{ url_for('static', filename='img/world.svg') }}" alt="Planeta Terra" />
-
-          <div class="hero-content-wrapper">
-              <div class="genesis-logo">
-                  <a href="{{ url_for('homepage') }}"></a>
-              </div>
-              <section class="texto-de-efeito">
-                <h1 id="hero-title" style="font-size: 3.5rem;">Explorar<br>Sistemas</h1>
-              </section>
-          </div>
-
-          <nav class="navbar">
-            <a href="#projeto">Projeto</a>
-            <a href="#espaco">Espaço</a>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <meta
+          name="description"
+          content="Explore o universo e descubra exoplanetas já descobertos e a probabilidade de vida neles."
+        />
+        <title>Genesis - Explore o Universo</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/planetas.css') }}" />]
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+          <script src="{{ url_for('static', filename='js/carrossel.js') }}"></script>
+          <script src="{{ url_for('static', filename='js/downloadButtom.js') }}"></script>
+          <script src="{{ url_for('static', filename='js/painelComparar.js') }}"></script>
+      </head>
+      <body>
+        <main>
+          <header class="genesis-logo" role="banner">
+              <a href="{{ url_for('homepage') }}"></a>
+          </header>
+          <nav class="navbar" aria-label="Navegação principal">
+            <a href="#projeto" class="text-wrapper-2">Projeto</a>
             <a href="{{ url_for('planetas') }}">Planetas</a>
+            <a href="#espaco" class="text-wrapper-2">Espaço</a>
             <a href="{{ url_for('homepage') }}">Home</a>
           </nav>
-      </div>
 
-      <div style="position: relative; z-index: 10; padding-bottom: 100px;">
+            <div class="carousel-visuals-wrapper">
+                <div class="carousel-visuals">
+                    {% for categoria, lista_planetas in dashboard.items() %}
+                         {% for p in lista_planetas %}
+                            <div class="planet-slide" data-index="{{ loop.index0 }}">
+                                <img class="planet" src="{{ url_for('static', filename='img/planets/' ~ p.nome_planeta ~ '.png') }}" alt="{{ p.nome_planeta }}">
+                                <div class="painel-planet">
+                                    <p class="label_planet">
+                                        O que deseja fazer?
+                                    </p>
+                                    <button class="btn_compare">
+                                        <img class="icon_mini" src="{{ url_for('static', filename='img/Compare.png') }}">
+                                        <p>Adicionar à comparação</p>
+                                    </button>
+                                    <button class="btn_sabermais">
+                                        <img class="icon_mini" src="{{ url_for('static', filename='img/Info.png') }}">
+                                        <a href="{{ url_for('aboutmore',nome_planeta=p.nome_planeta) }}">
+                                            <p>Saber mais sobre {{p.nome_planeta}}</p>
+                                        </a>
 
-          {% for categoria, sistemas in dashboard.items() %}
-            {% if sistemas %}
-                <div style="margin-bottom: 60px;">
-                    <div class="section-header">
-                        <h2 class="cat-title">{{ categoria }}</h2>
-                    </div>
-
-                    {% for star_name, planetas in sistemas.items() %}
-                        <h3 class="sys-title">⭐ Sistema {{ star_name }}</h3>
-
-                        <div class="carrossel-container">
-                            <button class="anterior">&#10094;</button>
-
-                            <div class="carrossel-wrapper">
-                                <div class="carrossel-track">
-
-                                    {% for p in planetas %}
-                                        <div class="card-novo">
-
-                                            <div class="card-img-wrapper">
-                                                <img src="{{ url_for('static', filename='img/planets/' ~ p.nome_planeta ~ '.png') }}"
-                                                     alt="{{ p.nome_planeta }}"
-                                                     onerror="this.src='{{ url_for('static', filename='img/planetaTerra.png') }}'">
-                                            </div>
-
-                                            <div class="card-title">{{ p.nome_planeta }}</div>
-
-                                            <div class="card-score-box">
-                                                <div class="score-val {% if p.calcular_provabilidade_vida() > 0.7 %}score-high{% elif p.calcular_provabilidade_vida() > 0.4 %}score-med{% else %}score-low{% endif %}">
-                                                    {{ "%.2f"|format(p.calcular_provabilidade_vida()) }}
-                                                </div>
-                                                <div style="font-size: 10px; color: #888;">ÍNDICE DE VIDA</div>
-                                            </div>
-
-                                            <div class="card-info-grid">
-                                                <div class="info-item">
-                                                    <span class="info-label">Raio</span>
-                                                    <span class="info-value">{{ p.raio_planeta }}</span>
-                                                </div>
-                                                <div class="info-item">
-                                                    <span class="info-label">Ano</span>
-                                                    <span class="info-value">{{ p.ano_descoberta }}</span>
-                                                </div>
-                                                <div class="info-item">
-                                                    <span class="info-label">Massa</span>
-                                                    <span class="info-value">{{ p.massa_planeta }}</span>
-                                                </div>
-                                                <div class="info-item">
-                                                    <span class="info-label">Grav.</span>
-                                                    <span class="info-value">{{ p.gravidade_planeta }}</span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    {% endfor %}
+                                    </button>
 
                                 </div>
+                                <h2>{{ p.nome_planeta }}</h2>
                             </div>
-
-                            <button class="proxima">&#10095;</button>
-                        </div>
+                        {% endfor %}
                     {% endfor %}
                 </div>
-            {% endif %}
-          {% endfor %}
 
-      </div>
+                <button class="nav-button prev-button">
+                    <img src="{{ url_for('static', filename='img/left.png') }}" alt="Anterior">
+                </button>
+                <button class="nav-button next-button">
+                    <img src="{{ url_for('static', filename='img/rigth.png') }}" alt="Próximo">
+                </button>
+            </div>
 
-    </main>
-  </body>
-</html>
+            <div class="carousel-data-container">
+                {% for categoria, lista_planetas in dashboard.items() %}
+                    {% for p in lista_planetas%}
+                        <div class="planeta-details" data-index="{{ loop.index0 }}">
+                            <div class="cards-container">
+                                <div class="data-card left-card">
+                                    <div class="data-row">
+                                        <div class="data-label">Raio</div>
+                                        <div class="data-value">{{ p.raio_planeta }}</div>
+                                    </div>
+                                    <div class="data-row">
+                                        <div class="data-label">Ano</div>
+                                        <div class="data-value">{{ p.ano_descoberta }}</div>
+                                    </div>
+                                    <div class="data-row">
+                                        <div class="data-label">Massa</div>
+                                        <div class="data-value">{{ p.massa_planeta }}</div>
+                                    </div>
+                                    <div class="data-row">
+                                        <div class="data-label">Gravidade planeta</div>
+                                        <div class="data-value">{{ p.gravidade_planeta }}m/s²</div>
+                                    </div>
+                                    <div class="data-row">
+                                        <div class="data-label">Período de dias</div>
+                                        <div class="data-value">{{ p.periodo_orbita_dias }}dias</div>
+                                    </div>
+                                </div>
+                                <div class="data-card center-card">
+                                        <div class="data-row">
+                                            <div class="data-label">Probabilidade de vida</div>
+                                            <div class="data-value">{{ p.categoria_habitabilidade() }}</div>
+                                        </div>
+
+                                        <div class="data-row">
+                                            <div class="data-label">Probabilidade (Índice)</div>
+                                            <div class="data-value">{{ p.calcular_provabilidade_vida() | round(2) }}</div>
+                                        </div>
+
+                                        <div class="data-row">
+                                            <div class="data-label">Temperatura</div>
+                                            <div class="data-value">{{ p.temperatura_equilibrio_planeta }}K°</div>
+                                        </div>
+
+                                        <div class="data-row">
+                                            <div class="data-label">Distância da terra</div>
+                                            <div class="data-value">{{ p.distancia_planeta }}</div>
+                                        </div>
+                                        <div class="data-row">
+                                            <div class="data-label">Distância da terra</div>
+                                            <div class="data-value">{{ p.distancia_planeta }}</div>
+                                        </div>
+                                </div>
+
+                                <div class="data-card rigth-card">
+                                        <div class="data-row">
+                                            <div class="data-label">Raio</div>
+                                            <div class="data-value">{{ p.raio_planeta }}</div>
+                                        </div>
+                                        <div class="data-row">
+                                            <div class="data-label">Ano</div>
+                                            <div class="data-value">{{ p.ano_descoberta }}</div>
+                                        </div>
+                                        <div class="data-row">
+                                            <div class="data-label">Massa</div>
+                                            <div class="data-value">{{ p.massa_planeta }}</div>
+                                        </div>
+                                        <div class="data-row">
+                                            <div class="data-label">Gravidade planeta</div>
+                                            <div class="data-value">{{ p.gravidade_planeta }}</div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+        </main>
+
+        <button id="trigger-download-btn" class="botao_download">
+                <img class="botao-download-icone" src="{{ url_for('static', filename='img/download.png')}}" alt="Baixar Dataset">
+        </button>
+
+        <div id="aviso-download-box" class="aviso-box">
+                 <p>Deseja baixar o dataset 2025.02.03_05.09.36.csv?</p>
+                 <div class="aviso-botoes-container">
+                         <button id="botao-sim" class="botao-sim"
+                       data-download-url="{{ url_for('download_dataset', filename='PS_2025.02.03_05.09.36.csv') }}">
+                    Sim
+                </button>
+
+                         <button id="botao-nao" class="botao-nao">Não</button>
+                 </div>
+        </div>
+      </body>
+    </html>

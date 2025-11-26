@@ -1,29 +1,177 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f0f0f0;
+
+.data-card, .center-card {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important; /* Para Safari/Chrome */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
 }
-h1 {
-    color: #333;
+.data-row {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
+
+.data-value {
+    color: #ffffff !important; /* Branco puro, bem sexy */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
+
+.data-label {
+    color: #cccccc !important;
+    font-weight: 300 !important; /* Puramente viadagem */
 }
-th {
-    background-color: #007BFF;
-    color: white;
+
+/* eu to forçando os cards a ficarem que nem tem la no home, o jeito que eu tava tentando antes n tava dando certo */
+
+.genesis-logo {
+    width: 300px !important;
+    height: 140px !important;
+    background-size: contain !important;
+    top: 40px !important;
+    left: 5% !important;
+    transform: none !important;
 }
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+
+.navbar {
+    top: 40px !important;
+    right: 5% !important;
+    gap: 40px !important;
+    align-items: center !important;
 }
-.high-score {
-    color: green;
-    font-weight: bold;
+
+.text-wrapper-2,
+.text-wrapper-3,
+.navbar a {
+    font-family: "Poppins", Helvetica, sans-serif !important;
+    color: white !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5) !important;
+    text-decoration: none !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+    position: relative !important;
+    transition: color 0.3s ease !important;
+}
+
+.text-wrapper-2:hover,
+.text-wrapper-3:hover {
+    transform: none !important;
+    text-decoration: none !important;
+}
+
+.text-wrapper-2::before,
+.text-wrapper-3::before,
+.navbar a::before {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -5px !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 3px !important;
+    background-color: white !important;
+    transition: width 0.3s ease !important;
+
+    /* Resetando transformações loucas do css antigo */
+    transform: none !important;
+    top: auto !important;
+}
+
+.text-wrapper-2:hover::before,
+.text-wrapper-3:hover::before,
+.navbar a:hover::before {
+    width: 100% !important;
+    transform: none !important;
+    background-color: white !important;
+}
+
+.painel-planet {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6) !important;
+    border-radius: 15px !important;
+
+    color: white !important;
+}
+
+.btn_compare,
+.btn_sabermais {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(5px) !important;
+
+    color: white !important;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn_compare:hover,
+.btn_sabermais:hover {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    border-color: white !important;
+}
+
+.btn_compare img,
+.btn_sabermais img {
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+}
+
+.label_planet {
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 0.9em !important;
+    opacity: 0.9 !important;
+}
+/* --- AJUSTE DAS SETAS DE NAVEGAÇÃO --- */
+.planet-slide {
+    margin: 0 80px !important;
+}
+
+.nav-button img {
+    width: 50px !important;
+    height: 50px !important;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));
+}
+
+.prev-button {
+    left: calc(50% - 240px) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.next-button {
+    right: calc(50% - 240px) !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.nav-button:hover {
+    transform: translateY(-50%) scale(1.2) !important;
+    cursor: pointer;
+}
+
+/* --- CORREÇÃO DE CENTRALIZAÇÃO DO CARROSSEL --- */
+.carousel-visuals {
+    /* Remove a regra antiga que travava o carrossel na direita */
+    right: auto !important;
+    /* Força o carrossel a começar da esquerda */
+    left: 0 !important;
+    /* Não mudar porque ja esta no tamanho certo para o JS ler */
+    width: 100% !important;
+    /* Centralizei */
+    display: flex !important;
+    justify-content: flex-start !important; /* Deixa o JS controlar a posição via Transform */
 }

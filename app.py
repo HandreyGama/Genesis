@@ -74,6 +74,7 @@ def teste():
         categoria = planeta.categoria_habitabilidade()
         if categoria in dashboard and len(dashboard[categoria]) < 4:
             dashboard[categoria].append(planeta)
+
     return render_template("index.html", dashboard=dashboard)
 
 
