@@ -19,7 +19,26 @@ data_handler.load_planets_from_csv(CSV_PATH)
 
 @app.route("/")
 def homepage():
-    return render_template("homepage.html")
+    todos_planetas = data_handler.get_planets()
+    todos_planetas.sort(key=lambda x: x.calcular_provabilidade_vida(), reverse=True)
+
+    dashboard = {
+        "Semelhante à Terra": [],
+        "Promissor": [],
+        "Possível": [],
+        "Improvavel": [],
+        "Hostil": [],
+        "Incerto": []
+    }
+
+    for planeta in todos_planetas:
+        categoria = planeta.categoria_habitabilidade()
+        if categoria in dashboard:
+            #Da pra aumentar o limite se quiser mostrar mais de um card por categoria, talvez seja bom fazer isso depois
+            if len(dashboard[categoria]) < 4:
+                dashboard[categoria].append(planeta)
+
+    return render_template("homepage.html", dashboard=dashboard)
 
 dashboard = {}
 @app.route("/planetas")

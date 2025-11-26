@@ -3,41 +3,87 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="Explore o universo e descubra exoplanetas já descobertos e a probabilidade de vida neles."
-    />
     <title>Genesis - Explore o Universo</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}" />
   </head>
+
   <body>
     <main class="landing-page">
-      <img class="background" src= "{{ url_for('static', filename='img/background.png') }}" alt="" role="presentation" />
-      <img class="world" src="{{ url_for('static', filename='img/world.svg') }}" alt="Planeta Terra visto do espaço" />
-      <header class="genesis-logo" role="banner">
-          <a href="{{ url_for('homepage') }}"></a>
-      </header>
-      <section class="texto-de-efeito" aria-labelledby="hero-title">
-        <h1 class="text-wrapper" id="hero-title">Explore o universo</h1>
-        <p class="div">
-          Descubra quais são os exoplanetas que já foram descobertos e se há probabilidade de vida neles.
-        </p>
-      </section>
-      <nav class="navbar" aria-label="Navegação principal">
-        <a href="#projeto" class="text-wrapper-2">Projeto</a>
-        <a href="#espaco" class="text-wrapper-2">Espaço</a>
-        <a href="{{ url_for('planetas') }}" class="text-wrapper-2">Planetas</a>
-        <a href="#home" class="text-wrapper-3" aria-current="page">Home</a>
-        <a href="#astros" class="text-wrapper-2">Astros</a>
-        <a href="#missoes" class="text-wrapper-2">Missões</a>
-      </nav>
-      <div class="explore">
-        <a href="{{ url_for('planetas') }}" class="navegar">Navegar &gt;</a>
+
+      <div class="hero-container">
+          <img class="hero-bg" src="{{ url_for('static', filename='img/background.png') }}" alt="" role="presentation" />
+          <img class="hero-world" src="{{ url_for('static', filename='img/world.svg') }}" alt="Planeta Terra" />
+
+          <div class="hero-content-wrapper">
+              <div class="genesis-logo">
+                  <a href="{{ url_for('homepage') }}"></a>
+              </div>
+              <section class="texto-de-efeito">
+                <h1 id="hero-title">Explore o<br>Universo</h1>
+                <p class="div">
+                  Descubra quais são os exoplanetas descobertos<br>e a probabilidade de vida neles.
+                </p>
+              </section>
+              <div class="explore">
+                <a href="{{ url_for('planetas') }}" class="navegar">Navegar &gt;</a>
+              </div>
+          </div>
+
+          <nav class="navbar">
+            <a href="#projeto">Projeto</a>
+            <a href="{{ url_for('planetas') }}">Planetas</a>
+            <a href="#espaco">Espaço</a>
+            <a href="{{ url_for('homepage') }}">Home</a>
+          </nav>
       </div>
-        <a class="github-link" href="https://github.com/HandreyGama/Genesis" target="_blank" rel="noopener noreferrer">
-            <img class="github" src="{{ url_for('static', filename='img/GitHub.png') }}" alt="GitHub">
-        </a>
+
+      <section class="dashboard-section">
+
+          <div class="mirror-background">
+              <img class="mirror-img" src="{{ url_for('static', filename='img/background.png') }}" alt="" role="presentation" />
+              <img class="mirror-world" src="{{ url_for('static', filename='img/world.svg') }}" alt="" role="presentation" />
+          </div>
+
+          <div class="dashboard-content-wrapper">
+              <h2 class="dashboard-title">Destaques da Missão</h2>
+
+              <div class="cards-container">
+                {% for categoria, lista_planetas in dashboard.items() %}
+                    {% if lista_planetas %}
+                        {% set p = lista_planetas[0] %}
+
+                        <div class="planet-card">
+                            <div style="font-size: 12px; text-transform: uppercase; color: #aaa; margin-bottom: 5px;">{{ categoria }}</div>
+                            <div class="card-name">{{ p.nome_planeta }}</div>
+
+                            <div class="card-score {% if p.calcular_provabilidade_vida() > 0.7 %}score-high{% elif p.calcular_provabilidade_vida() > 0.4 %}score-med{% else %}score-low{% endif %}">
+                                {{ "%.2f"|format(p.calcular_provabilidade_vida()) }}
+                            </div>
+
+                            <div class="card-details">
+                                <span>Raio: {{ p.raio_planeta }} R⊕</span>
+                                <span>Ano: {{ p.ano_descoberta }}</span>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+              </div>
+          </div>
+      </section>
+
+      <footer class="site-footer">
+          <div class="footer-content">
+              <p>&copy; 2025 Projeto Genesis. Todos os direitos reservados.</p>
+              <div class="footer-links">
+                  <a href="#">GitHub</a>
+                  <a href="#">Documentação</a>
+                  <a href="#">Contato</a>
+              </div>
+          </div>
+      </footer>
+
     </main>
   </body>
 </html>
