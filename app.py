@@ -58,6 +58,7 @@ def planetas():
             dashboard[categoria].append(planeta)
     return render_template("planetas.html", dashboard=dashboard)
 
+
 @app.route("/teste")
 def teste():
     todos_planetas = data_handler.get_planets()
@@ -66,9 +67,7 @@ def teste():
         "Semelhante à Terra": [],
         "Promissor": [],
         "Possível": [],
-        "Improvavel": [],
-        "Hostil": [],
-        "Incerto": []
+        "Improvavel": []
     }
 
     for planeta in todos_planetas:
@@ -76,7 +75,6 @@ def teste():
         if categoria in dashboard and len(dashboard[categoria]) < 4:
             dashboard[categoria].append(planeta)
     return render_template("index.html", dashboard=dashboard)
-# IMPOSSIVEL RESPIRAR PELA BOCA COM A LINGUA PRA FORA2
 
 
 DOWNLOAD_DIRECTORY = os.path.abspath('dataset')
