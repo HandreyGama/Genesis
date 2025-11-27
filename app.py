@@ -64,6 +64,7 @@ def teste():
     return render_template("index.html")
 
 
+
 DOWNLOAD_DIRECTORY = os.path.abspath('dataset')
 @app.route('/planetas/download/<filename>')
 def download_dataset(filename):
