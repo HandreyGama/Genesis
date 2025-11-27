@@ -154,7 +154,7 @@ body {
 
 .label_planet {
     font-family: "Poppins", Helvetica;
-    font-size: 64px;
+    font-size: 44px;
     font-weight: bold;
     color: var(--color_text--);
 }
@@ -169,7 +169,7 @@ body {
 }
 
 .sobre h2 {
-    font-family: "Georgia", serif;
+    font-family: "Poppins", Helvetica, sans-serif;
     font-size: 26px;
     font-style: italic;
     margin-left: 20px;
@@ -178,12 +178,6 @@ body {
 }
 
 .sobre p {
-    font-family: "Georgia", serif;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: justify;
-    color: var(--color_text--);
-    margin-bottom: 10px;
 }
 
 @keyframes fadeIn {
@@ -246,7 +240,13 @@ body {
     }
 }
 .p-ia{
-    font-family: "Poppins", Helvetica;
-    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:"Poppins", Helvetica, sans-serif;
+    font-size: 32px;
+    line-height: 1.6;
+    text-align: justify;
     color: var(--color_text--);
+    margin-bottom: 10px;
 }
