@@ -5,7 +5,6 @@
     <title> Planeta</title>
     <!-- O nome do arquivo CSS no link deve ser 'styles.css' se você estiver usando o último arquivo que corrigimos. -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about-planet.css') }}">
-    <script src="{{ url_for('static', filename='js/btn_theme.js') }}"></script>
 </head>
 <body>
     <div class="side">
@@ -16,17 +15,10 @@
     </div>
     <div class="content">
         <div class="navbar_content">
-            <!-- CORREÇÃO APLICADA AQUI: Links são agora filhos diretos de navbar_content -->
-            <!-- A tag <nav> foi removida para que o Grid funcione. -->
-
-            <!-- Os IDs das áreas do Grid são aplicados DIRETAMENTE aos links. -->
-                <a href="#projeto" class="text-wrapper-2" id="projeto">Projeto</a>
-                <a href="#espaco" class="text-wrapper-2" id="espaco">Espaço</a>
-                <a href="#planetas" class="text-wrapper-2" id="planetas">Planetas</a>
-                <a href="#home" class="text-wrapper-3" id="home">Home</a>
-                <a href="#astros" class="text-wrapper-2" id="astros">Astros</a>
-                <a href="#missoes" class="text-wrapper-2" id="missoes">Missões</a>
-                <button class="btn_theme"></button>
+    <a href="#projeto" class="link-menu">Projeto</a>
+    <a href="#planetas" class="link-menu">Planetas</a>
+    <a href="#espaco" class="link-menu">Espaço</a>
+    <a href="#home" class="link-menu">Home</a>>
         </div>
         <div class="conteudo_content">
              <!-- Conteúdo principal da página (planetas, etc.) -->

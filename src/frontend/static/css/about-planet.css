@@ -1,252 +1,378 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
-    --color_text--: black;
-    --color_bg--: white;
-    --color-btn-theme--: white;
+    --color_text--: white !important;
+    --color_bg--: transparent !important; /* Remove o branco */
 }
 
 body {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    grid-template-areas: "side content";
-    height: 100vh;
-    width: 100vw;
+    background-image: url("/static/img/background.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
 }
 
 .side {
-    grid-area: side;
-    background-image: url("/static/img/background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-}
-
-.side img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.genesis-logo {
-    position: absolute;
-    top: 50px;
-    left: 73px;
-    width: 211px;
-    height: 91px;
-    aspect-ratio: 2.31;
-    background-image: url(https://c.animaapp.com/aPetIHpm/img/genesislogo--2--1@2x.png);
-    background-size: cover;
-    background-position: center;
-    animation: fadeIn 5s;
-}
-
-.genesis-logo a {
-    display: block;
-    width: 100%;
-    height: 100%;
+    background: none !important;
+    border: none !important;
 }
 
 .content {
-    grid-area: content;
-    display: grid;
-    grid-template-rows: 10% auto;
-    grid-template-areas:
-        "navbar_content"
-        "conteudo_content";
-    background-color: var(--color_bg--);
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 10px;
-}
-
-.navbar_content {
-    grid-area: navbar_content;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-areas:
-        "projeto espaco planetas home astros missoes btn_grid";
-    width: 100%;
-    justify-items: center;
-    align-items: center;
-    padding-inline: 40px;
-}
-
-#projeto { grid-area: projeto; }
-#espaco { grid-area: espaco; }
-#planetas { grid-area: planetas; }
-#home { grid-area: home; }
-#astros { grid-area: astros; }
-#missoes { grid-area: missoes; }
-
-.btn_theme {
-    grid-area: btn_grid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    background-image: url("/static/img/Moon.png");
-    background-size: cover;
-    color: var(--color-btn-theme--);
-}
-
-.text-wrapper {
-    position: absolute;
-    width: 100%;
-    top: 22%;
-    font-family: "Poppins", Helvetica;
-    font-weight: 700;
-    font-size: 64px;
-    color: var(--color_text--);
-    animation: fadeIn 5s;
+    background-color: transparent !important; /* Tira o fundo branco */
+    scrollbar-width: thin; /* Barra de rolagem mais fina */
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
 }
 
 .text-wrapper-2,
-.text-wrapper-3 {
-    text-decoration: none;
-    font-family: "Poppins", Helvetica;
-    color: var(--color_text--);
-    transition: all 0.3s ease;
+.text-wrapper-3,
+.label_planet,
+.sobre h2,
+.sobre p,
+.p-ia {
+    color: white !important;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8) !important; /* Sombra para ler melhor em cima das estrelas */
 }
 
-.text-wrapper-2 {
-    font-size: 20px;
+.navbar_content a {
+    color: white !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
 }
 
-.text-wrapper-3 {
-    font-size: 30px;
-}
-
-.text-wrapper-2:hover,
-.text-wrapper-3:hover {
-    transform: translateY(-4px);
+.content {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    padding-top: 50px !important;
+    height: 100vh !important;
+    overflow: hidden !important;
 }
 
 .conteudo_content {
-    grid-area: conteudo_content;
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "planeta"
-        "sobre";
-    justify-content: center;
-    align-items: center;
-}
+    width: 90% !important;
+    max-width: 1200px !important;
+    height: 75vh !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 50px !important;
+    padding: 50px !important;
+    margin-top: 20px !important;
 
-.planet {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
 
-.planet img {
-    width: 220px;
-}
-
-.label_planet {
-    font-family: "Poppins", Helvetica;
-    font-size: 44px;
-    font-weight: bold;
-    color: var(--color_text--);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 30px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8) !important;
 }
 
 .sobre {
-    grid-area: sobre;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 80%;
-    margin-top: 20px;
+    width: 60% !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+    padding-right: 20px !important;
+    margin: 0 !important;
+    display: block !important;
 }
 
+.planet {
+    width: 40% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.planet img {
+    width: 100% !important;
+    max-width: 400px !important;
+    height: auto !important;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15)) !important;
+    animation: flutuar 6s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.sobre::-webkit-scrollbar {
+    width: 8px;
+}
+.sobre::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+.sobre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+.sobre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+/* --- PASSO 3: CORREÇÃO DE ALINHAMENTO E TIPOGRAFIA --- */
+
+/* 1. CORREÇÃO CRÍTICA: Mata o grid antigo que empurrava tudo para a direita */
+body {
+    display: block !important; /* Remove o grid de colunas */
+    height: 100vh !important;
+    overflow: hidden !important;
+}
+
+/* Garante que o menu ocupe a largura total agora que não tem barra lateral */
+.navbar_content {
+    width: 100% !important;
+    max-width: 1200px !important; /* Limite para não ficar muito espalhado em monitores gigantes */
+    margin: 0 auto !important; /* Centraliza o menu */
+    padding-top: 20px !important;
+}
+
+.label_planet,
 .sobre h2 {
-    font-family: "Poppins", Helvetica, sans-serif;
-    font-size: 26px;
-    font-style: italic;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    color: var(--color_text--);
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    font-size: 1.5em !important;
+    color: #4a90e2 !important;
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.4) !important;
+
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.3) !important;
+    display: inline-block !important;
 }
 
-.sobre p {
+.sobre > h1.label_planet {
+    font-size: 3em !important;
+    color: white !important;
+    border: none !important;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5) !important;
+    margin-top: 0 !important;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+.sobre p,
+.p-ia {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    color: #e0e0e0 !important;
+    text-align: justify !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.5px !important;
 }
 
-@media screen and (max-width: 430px) {
-
-    body {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "side"
-            "content";
-        height: auto;
-        overflow-x: hidden;
-    }
-
-    .side {
-        width: 100%;
-        height: 100vh;
-    }
-
-    .content {
-        grid-template-rows: auto auto;
-        height: auto;
-        overflow-y: auto;
-    }
-
-    .navbar_content {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "home planetas espaco"
-            "projeto astros missoes"
-            "btn_grid btn_grid btn_grid";
-        padding-inline: 10px;
-        row-gap: 10px;
-    }
-
-    .planet {
-        display: flex;
-    }
-
-    .label_planet {
-        font-size: 48px;
-    }
-
-    .sobre {
-        width: 90%;
-        margin-top: 10px;
-    }
-
-    .sobre h2 {
-        margin-left: 10px;
-        font-size: 22px;
-    }
-
-    .sobre p {
-        font-size: 12px;
-    }
+.p-ia:hover {
+    color: white !important;
+    transition: color 0.3s ease;
 }
-.p-ia{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family:"Poppins", Helvetica, sans-serif;
-    font-size: 32px;
-    line-height: 1.6;
-    text-align: justify;
-    color: var(--color_text--);
-    margin-bottom: 10px;
+
+body {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+}
+
+.side {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    border: none !important;
+    z-index: 20 !important;
+}
+
+.genesis-logo {
+    display: block !important;
+    top: 30px !important;
+    left: 5% !important;
+    z-index: 21 !important;
+}
+
+.content {
+    flex: 1 !important;
+    height: auto !important;
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    background: transparent !important;
+    padding-top: 0 !important;
+}
+
+.navbar_content {
+    width: 100% !important;
+    height: 100px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    padding-right: 5% !important;
+    align-items: center !important;
+}
+
+.conteudo_content {
+    margin-top: 20px !important;
+    height: 75% !important;
+}
+
+.conteudo_content {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    gap: 80px !important;
+    align-items: center !important;
+}
+
+.sobre {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 30px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+
+    width: 50% !important;
+    height: 85% !important;
+    padding: 40px !important;
+    overflow-y: auto !important;
+}
+
+.planet {
+    width: 50% !important;
+    height: 100% !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.planet img {
+    max-width: 500px !important;
+    filter: drop-shadow(0 0 40px rgba(74, 144, 226, 0.2)) !important;
+}
+
+.sobre p,
+.p-ia {
+    font-size: 35px !important;
+    line-height: 1.8 !important;
+}
+
+.label_planet,
+.sobre h2 {
+    font-size: 2em !important;
+    margin-top: 30px !important;
+}
+
+.sobre > h1.label_planet {
+    font-size: 4.5em !important;
+    margin-bottom: 20px !important;
+}
+
+.sobre {
+    padding-right: 30px !important;
+}
+
+.conteudo_content {
+    width: 98% !important;
+    max-width: 1800px !important;
+
+    justify-content: space-between !important;
+    gap: 20px !important;
+}
+
+.planet {
+    width: 45% !important;
+    justify-content: flex-start !important;
+    padding-left: 20px !important;
+}
+
+.sobre {
+    width: 55% !important;
+    height: 90% !important;
+}
+
+.navbar_content {
+    max-width: 1800px !important;
+    width: 98% !important;
+    padding-right: 20px !important;
+}
+
+.planet img {
+    max-width: 650px !important;
+    width: 90% !important;
+}
+
+.conteudo_content {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 40px !important;
+    margin: 0 !important;
+    justify-content: space-between !important;
+}
+
+.planet {
+    padding-left: 0 !important;
+    justify-content: center !important;
+}
+
+.sobre {
+    width: 50% !important;
+    margin-right: 0 !important;
+}
+
+.navbar_content {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 40px !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    padding-right: 60px !important;
+    height: auto !important;
+    padding-top: 30px !important;
+}
+
+.link-menu {
+    font-family: "Poppins", Helvetica, sans-serif !important;
+    color: white !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    letter-spacing: 1px !important;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5) !important;
+}
+
+.link-menu::before {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -5px !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 3px !important;
+    background-color: white !important;
+    transition: width 0.3s ease !important;
+}
+
+.link-menu:hover::before {
+    width: 100% !important;
+}
+
+.link-menu:hover {
+    color: #4a90e2 !important;
+}
+
+.btn_theme {
+    margin-left: 20px !important;
+    transform: scale(1.2) !important;
 }

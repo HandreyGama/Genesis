@@ -61,21 +61,7 @@ def planetas():
 
 @app.route("/teste")
 def teste():
-    todos_planetas = data_handler.get_planets()
-    todos_planetas.sort(key=lambda x: x.calcular_provabilidade_vida(), reverse=True)
-    dashboard = {
-        "Semelhante à Terra": [],
-        "Promissor": [],
-        "Possível": [],
-        "Improvavel": []
-    }
-
-    for planeta in todos_planetas:
-        categoria = planeta.categoria_habitabilidade()
-        if categoria in dashboard and len(dashboard[categoria]) < 4:
-            dashboard[categoria].append(planeta)
-
-    return render_template("index.html", dashboard=dashboard)
+    return render_template("index.html")
 
 
 DOWNLOAD_DIRECTORY = os.path.abspath('dataset')
