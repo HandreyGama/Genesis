@@ -382,4 +382,7 @@ body {
         font-size: 14px;
         line-height: 1.6;
     }
+    .caixa_pergunta p {
+        color: white;
+    }
 }

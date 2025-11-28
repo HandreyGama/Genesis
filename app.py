@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, send_from_directory, request
 from src.dataset.data_handler import DataHandler
-
+from src.backend.Charts import Charts
 from src.backend.AiIntegration import Ai
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -92,6 +92,7 @@ def aboutmore(nome_planeta):
 @app.route("/comparar")
 def comparar():
     planetas_str = request.args.get('planetas')
+
     planetas_selecionados = []
     if planetas_str:
         nomes_planetas = planetas_str.split(',')
@@ -101,6 +102,9 @@ def comparar():
                 planetas_selecionados.append(planeta)
 
     return render_template("comparar.html", planetas=planetas_selecionados)
-
+@app.route("/espaco")
+def espaco():
+    todos_planetas = data_handler.get_planets()
+    return render_template("lista-exoplanetas.html",lista_planetas=todos_planetas)
 if __name__ == "__main__":
     app.run(debug=True)

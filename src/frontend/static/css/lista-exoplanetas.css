@@ -1,0 +1,270 @@
+.frame {
+    background-image: url("/static/img/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.frame .line {
+  top: 381px;
+  left: 205px;
+  width: 1202px;
+  position: absolute;
+  height: 1px;
+  object-fit: cover;
+}
+
+.frame .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.frame .rectangle {
+  position: absolute;
+
+  top: 145px;
+  left: 15%;
+  width: 1351px;
+  height: 773px;
+  background-color: #0f0707e0;
+  border-radius: 25px;
+  filter: blur(2px);
+  backdrop-filter: blur(11.5px) brightness(100%);
+  -webkit-backdrop-filter: blur(11.5px) brightness(100%);
+}
+
+.frame .header {
+  display: flex;
+  width: 848px;
+  height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 33px;
+  left: calc(50% - 116px);
+  background-color: transparent;
+}
+
+.frame .text-wrapper {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.2px;
+  white-space: nowrap;
+}
+
+.frame .div {
+  position: relative;
+
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 30.6px;
+  letter-spacing: 0;
+  line-height: 26.3px;
+  white-space: nowrap;
+}
+
+.frame .genesis-logo {
+  position: absolute;
+  top: 33px;
+  left: 43px;
+  width: 211px;
+  height: 91px;
+  aspect-ratio: 2.31;
+  background-image: url(https://c.animaapp.com/tHmQl0Vg/img/genesislogo--2--1-1@2x.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.frame .text-wrapper-2 {
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  top: 184px;
+  left: 42%;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 30.6px;
+  letter-spacing: 0;
+  line-height: 26.3px;
+  white-space: nowrap;
+}
+
+.frame .rectangle-2{
+  position: relative;
+  width: 996px;
+  height: 58px;
+  background-color: #090808;
+  border-radius: 20px;
+  text-decoration: none;
+}
+.frame .rectangle-2::before{
+    background-color: white;
+    transition: width 0.3s;
+    content: "";
+    text-decoration: underline;
+}
+
+.frame .text-wrapper-3,
+.frame .text-wrapper-4,
+.frame .text-wrapper-5,
+.frame .text-wrapper-6,
+.frame .text-wrapper-7,
+.frame .text-wrapper-8,
+.frame .text-wrapper-9,
+.frame .text-wrapper-10 {
+  position: absolute;
+  top: 50%;
+  left: 11px;
+  transform: translateY(-50%);
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 30.6px;
+  letter-spacing: 0;
+  line-height: 26.3px;
+  white-space: nowrap;
+}
+
+.frame .rectangle-9 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 11px;
+  height: 612px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.frame .scroll-thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 11px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.frame .img {
+  top: 229px;
+  left: 39.5%;
+  width: 414px;
+  position: absolute;
+  height: 1px;
+  object-fit: cover;
+}
+/* Inject original CSS code here */
+
+.frame .header-nav {
+   position: absolute;
+    top: 40px;
+    right: 5%;
+    z-index: 20;
+    display: flex;
+    gap: 50px;
+}
+
+.frame .header-nav a {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.header-nav a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    transition: width 0.3s;
+}
+.header-nav a:hover::before { width: 100%; }
+
+
+.frame .header-nav a:hover {
+  opacity: 0.8;
+}
+
+.frame .header-nav a:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.frame .exoplanets-section {
+  position: absolute;
+  top: 25%;
+  left: 12%;
+  width: 1216px;
+  height: 670px;
+}
+
+.frame .exoplanets-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 12%;
+  overflow: hidden;
+  overflow-y: auto; /* Mostra a barra de rolagem vertical apenas quando necessário */
+  overflow-x: hidden; //se realmente quer impedir que tenha uma barra horizontal.
+  overflow-y: scroll; //pode-se usar auto para deixar o browser decidir quando usar.
+  white-space: nowrap; //n]ao deixa quebrar a linha
+}
+
+.frame .exoplanets-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-decoration: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 20px;
+  -ms-overflow-style: none;
+  overflow-x: hidden; //se realmente quer impedir que tenha uma barra horizontal.
+  overflow-y: scroll; //pode-se usar auto para deixar o browser decidir quando usar.
+  white-space: nowrap; //n]ao deixa quebrar a linha
+}
+
+.frame .exoplanets-list::-webkit-scrollbar {
+  display: none;
+}
+
+.frame .exoplanet-item {
+  position: relative;
+  margin-bottom: 34px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.frame .exoplanet-item:first-child {
+  margin-top: 63px;
+}
+
+.frame .exoplanet-item:hover {
+  transform: translateX(5px);
+
+}
+
+.frame .exoplanet-item:focus-within {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}

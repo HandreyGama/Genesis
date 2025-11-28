@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Genesis - Todos os Exoplanetas</title>
+    <meta name="description" content="Explore todos os exoplanetas do sistema TRAPPIST-1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lista-exoplanetas.css') }}" />
+  </head>
+  <body>
+    <script src="script.js" defer></script>
+    <main class="frame" data-model-id="40:77">
+      <img class="line" src="https://c.animaapp.com/tHmQl0Vg/img/line-14.svg" alt="" role="presentation" />
+      <img
+        class="background"
+        src="{{ url_for('static', filename='img/background.png') }}"
+        alt="Space background with stars and nebula"
+      />
+      <div class="rectangle" aria-hidden="true"></div>
+      <header class="header">
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="{{ url_for('homepage') }}" class="div">Home</a>
+          <a href="#projeto" class="text-wrapper">Projeto</a>
+          <a href="{{ url_for('espaco') }}" class="text-wrapper">Espaço</a>
+          <a href="{{ url_for('planetas') }}" class="text-wrapper">Planetas</a>
+        </nav>
+      </header>
+      <div class="genesis-logo" role="img" aria-label="Genesis Logo"></div>
+      <h1 class="text-wrapper-2">Todos os Exoplanetas</h1>
+      <img class="img" src="https://c.animaapp.com/tHmQl0Vg/img/line-15.svg" alt="" role="presentation" />
+      <section class="exoplanets-section">
+        <div class="exoplanets-container">
+          <ul class="exoplanets-list" role="list" id="exoplanetsList">
+
+              {% for p in lista_planetas %}
+            <li class="exoplanet-item">
+              <div class="rectangle-2" aria-hidden="true"></div>
+              <span class="text-wrapper-3"> {{ p.nome_planeta}}</span>
+            </li>
+              {% endfor %}
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
