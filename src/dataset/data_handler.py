@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.backend.Charts import Charts
+
 from src.models.Exoplaneta import Exoplaneta
 from src.const.genesis_consts import DatasetColumns
 import os
@@ -96,8 +96,6 @@ if __name__ == "__main__":
     if planetas_carregados:
         print(f"total de planetas carregados:{len(planetas_carregados)}" )
 
-        chart = Charts()
-        chart.comparacao_planeta_grafico_barras([planetas_carregados[-1],planetas_carregados[-2]])
     else:
         print("deu ruim")
 

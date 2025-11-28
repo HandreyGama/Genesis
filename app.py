@@ -1,7 +1,6 @@
 import os
 from flask import Flask, render_template, send_from_directory, request
 from src.dataset.data_handler import DataHandler
-from src.backend.Charts import Charts
 from src.backend.AiIntegration import Ai
 
 basedir = os.path.abspath(os.path.dirname(__file__))

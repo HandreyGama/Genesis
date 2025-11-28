@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-    name='Genesis',
+    name='PycharmProjects',
     version='',
-    packages=['numpy','flask'],
+    packages=[''],
     url='',
     license='',
     author='handrey',
     author_email='',
-    description='', install_requires=['flask', 'pandas','numpy']
+    description=''
 )
