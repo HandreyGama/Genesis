@@ -1,0 +1,115 @@
+/* Layout Principal */
+.compare-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 80px auto 0; /* 80px top para compensar header fixo se houver */
+    color: white;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 195, 255, 0.7);
+}
+
+/* Tabela de Comparação */
+.table-wrapper {
+    overflow-x: auto; /* Permite scroll horizontal em mobile */
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: separate; /* Necessário para border-radius nas celulas */
+    border-spacing: 0;
+    text-align: center;
+}
+
+.compare-table th, .compare-table td {
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Coluna de Atributos (Primeira coluna) */
+.attribute-col {
+    text-align: left;
+    font-weight: bold;
+    color: #a0a0a0;
+    width: 20%;
+    position: sticky; /* Mantém a coluna fixa ao rolar horizontalmente */
+    left: 0;
+    background: rgba(10, 10, 10, 0.9); /* Fundo escuro para não sobrepor */
+    z-index: 2;
+}
+
+/* Cabeçalho dos Planetas */
+.planet-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.planet-header img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.planet-header img:hover {
+    transform: scale(1.1);
+}
+
+.planet-header h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+/* Tags de Categoria (Semelhante, Hostil, etc.) */
+.tag {
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Cores das Tags baseadas no retorno do backend */
+.tag.semelhante-à-terra { background-color: rgba(0, 255, 127, 0.2); color: #00ff7f; border: 1px solid #00ff7f; }
+.tag.promissor { background-color: rgba(0, 191, 255, 0.2); color: #00bfff; border: 1px solid #00bfff; }
+.tag.possível { background-color: rgba(255, 215, 0, 0.2); color: #ffd700; border: 1px solid #ffd700; }
+.tag.hostil, .tag.improvável { background-color: rgba(255, 69, 0, 0.2); color: #ff4500; border: 1px solid #ff4500; }
+
+/* Linha de Destaque (ESI Score) */
+.highlight-row {
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 1.2rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem;
+}
+
+.btn-action {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: opacity 0.3s;
+}
+
+.btn-action:hover {
+    opacity: 0.9;
+}

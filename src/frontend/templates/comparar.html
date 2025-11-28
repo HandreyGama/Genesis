@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis - Comparar Planetas</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/comparar.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="/">Genesis</a>
+        </div>
+        <nav>
+            <a href="/planetas">Voltar para Lista</a>
+        </nav>
+    </header>
+
+    <main class="compare-container">
+        <h1 class="page-title">Comparação de Exoplanetas</h1>
+
+        {% if planetas %}
+        <div class="table-wrapper">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="attribute-col">Atributo</th>
+                        {% for p in planetas %}
+                        <th class="planet-col">
+                            <div class="planet-header">
+                                <img src="{{ url_for('static', filename='img/planets/' + p.nome_planeta + '.png') }}"
+                                     alt="{{ p.nome_planeta }}"
+                                     onerror="this.src='{{ url_for('static', filename='img/planetaTerra.png') }}'">
+                                <h3>{{ p.nome_planeta }}</h3>
+                                <span class="tag {{ p.categoria_habitabilidade()|lower|replace(' ', '-') }}">
+                                    {{ p.categoria_habitabilidade() }}
+                                </span>
+                            </div>
+                        </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td>Índice de Similaridade (ESI)</td>
+                        {% for p in planetas %}
+                        <td>
+                            <strong>{{ (p.calcular_provabilidade_vida() * 100)|round(1) }}%</strong>
+                        </td>
+                        {% endfor %}
+                    </tr>
+
+                    <tr>
+                        <td>Raio (Terrestres)</td>
+                        {% for p in planetas %}
+                        <td>{{ p.raio_planeta }} R⊕</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Massa (Terrestres)</td>
+                        {% for p in planetas %}
+                        <td>{{ p.massa_planeta }} M⊕</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Gravidade</td>
+                        {% for p in planetas %}
+                        <td>{{ p.gravidade_planeta }} g</td>
+                        {% endfor %}
+                    </tr>
+
+                    <tr>
+                        <td>Temp. de Equilíbrio</td>
+                        {% for p in planetas %}
+                        <td>{{ p.temperatura_equilibrio_planeta }} K</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Insolação</td>
+                        {% for p in planetas %}
+                        <td>{{ p.insolacao_planeta }} x Terra</td>
+                        {% endfor %}
+                    </tr>
+
+                    <tr>
+                        <td>Período Orbital</td>
+                        {% for p in planetas %}
+                        <td>{{ p.periodo_orbitas }} dias</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Estrelas no Sistema</td>
+                        {% for p in planetas %}
+                        <td>{{ p.estrelas_numero }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Ano da Descoberta</td>
+                        {% for p in planetas %}
+                        <td>{{ p.ano_descoberta }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <p>Nenhum planeta selecionado para comparação.</p>
+            <a href="/planetas" class="btn-action">Selecionar Planetas</a>
+        </div>
+        {% endif %}
+    </main>
+
+</body>
+</html>
