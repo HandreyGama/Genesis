@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare os atributos dos exoplanetas descobertos.">
+    <title>Genesis - Comparação de Planetas</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/comparar.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header class="genesis-logo" role="banner">
+        <a href="{{ url_for('homepage') }}"></a>
+    </header>
+
+    <nav class="navbar" aria-label="Navegação principal">
+        <a href="{{ url_for('homepage') }}#projeto" class="text-wrapper-2">Projeto</a>
+        <a href="{{ url_for('planetas') }}" class="text-wrapper-2">Planetas</a>
+        <a href="{{ url_for('homepage') }}#espaco" class="text-wrapper-2">Espaço</a>
+        <a href="{{ url_for('homepage') }}" class="text-wrapper-2">Home</a>
+    </nav>
+
+    <main>
+        <h1 class="page-title">Comparativo Estelar</h1>
+
+        {% if planetas %}
+        <div class="comparacao-container">
+
+            <section class="painel-grafico glass-panel">
+                <h2>Análise de Atributos</h2>
+                <div class="chart-wrapper">
+                    <canvas id="planetRadarChart"></canvas>
+                </div>
+            </section>
+
+            <section class="painel-dados glass-panel">
+                <h2>Dados Detalhados</h2>
+                <div class="table-responsive">
+                    <table class="tabela-comparativa">
+                        <thead>
+                            <tr>
+                                <th class="coluna-atributo">Atributo</th>
+                                {% for p in planetas %}
+                                <th class="coluna-planeta">
+                                    <div class="header-planeta">
+                                        <div class="img-wrapper">
+                                            <img src="{{ url_for('static', filename='img/planets/' ~ p.nome_planeta ~ '.png') }}"
+                                                 alt="{{ p.nome_planeta }}"
+                                                 onerror="this.src='{{ url_for('static', filename='img/planetaTerra.png') }}'">
+                                        </div>
+                                        <span class="nome-planeta">{{ p.nome_planeta }}</span>
+                                        <span class="badge-categoria {{ p.categoria_habitabilidade()|lower|replace(' ', '-')|replace('á', 'a') }}">
+                                            {{ p.categoria_habitabilidade() }}
+                                        </span>
+                                    </div>
+                                </th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="linha-destaque">
+                                <td>Índice de Similaridade (ESI)</td>
+                                {% for p in planetas %}
+                                <td>
+                                    <span class="valor-esi">{{ (p.calcular_provabilidade_vida() * 100)|round(1) }}%</span>
+                                </td>
+                                {% endfor %}
+                            </tr>
+
+                            <tr>
+                                <td>Raio (R⊕)</td>
+                                {% for p in planetas %}
+                                <td>{{ p.raio_planeta }}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>Massa (M⊕)</td>
+                                {% for p in planetas %}
+                                <td>{{ p.massa_planeta }}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>Gravidade (g)</td>
+                                {% for p in planetas %}
+                                <td>{{ p.gravidade_planeta }}</td>
+                                {% endfor %}
+                            </tr>
+
+                            <tr>
+                                <td>Temp. Equilíbrio (K)</td>
+                                {% for p in planetas %}
+                                <td>{{ p.temperatura_equilibrio_planeta }}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>Insolação (vs Terra)</td>
+                                {% for p in planetas %}
+                                <td>{{ p.insolacao_planeta }}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>Período Orbital (dias)</td>
+                                {% for p in planetas %}
+                                <td>{{ p.periodo_orbitas }}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>Ano Descoberta</td>
+                                {% for p in planetas %}
+                                <td>{{ p.ano_descoberta }}</td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        {% else %}
+        <div class="empty-state glass-panel">
+            <p>Nenhum planeta selecionado para comparação.</p>
+            <a href="{{ url_for('planetas') }}" class="btn-action">Voltar para o Catálogo</a>
+        </div>
+        {% endif %}
+    </main>
+
+    <script>
+        // Passando dados do Jinja2 para uma variável global JS segura
+        window.planetaData = [
+            {% for p in planetas %}
+            {
+                nome: "{{ p.nome_planeta }}",
+                raio: {{ p.raio_planeta }},
+                massa: {{ p.massa_planeta }},
+                gravidade: {{ p.gravidade_planeta }},
+                esi: {{ (p.calcular_provabilidade_vida() * 5)|round(2) }} // Escalonado para o gráfico
+            },
+            {% endfor %}
+        ];
+    </script>
+
+    <script src="{{ url_for('static', filename='js/comparar.js') }}"></script>
+
+</body>
+</html>

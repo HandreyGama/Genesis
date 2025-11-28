@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request
 from src.dataset.data_handler import DataHandler
 
 from src.backend.AiIntegration import Ai
@@ -87,6 +87,20 @@ def aboutmore(nome_planeta):
 
     planeta_changed = data_handler.get_planet_por_nome(nome_planeta)
     return render_template("about-planet.html", planeta_changed=planeta_changed, resposta_ia=resposta_ia)
+
+
+@app.route("/comparar")
+def comparar():
+    planetas_str = request.args.get('planetas')
+    planetas_selecionados = []
+    if planetas_str:
+        nomes_planetas = planetas_str.split(',')
+        for nome in nomes_planetas:
+            planeta = data_handler.get_planet_por_nome(nome.strip())
+            if planeta:
+                planetas_selecionados.append(planeta)
+
+    return render_template("comparar.html", planetas=planetas_selecionados)
 
 if __name__ == "__main__":
     app.run(debug=True)

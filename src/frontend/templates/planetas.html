@@ -1,73 +1,127 @@
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charset="utf-8" />
-        <meta
-          name="description"
-          content="Explore o universo e descubra exoplanetas já descobertos e a probabilidade de vida neles."
-        />
-        <title>Genesis - Explore o Universo</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/planetas.css') }}" />]
-          <script src="{{ url_for('static', filename='js/carrossel.js') }}"></script>
-          <script src="{{ url_for('static', filename='js/downloadButtom.js') }}"></script>
-          <script src="{{ url_for('static', filename='js/painelComparar.js') }}"></script>
-      </head>
-      <body>
-        <main>
-          <header class="genesis-logo" role="banner">
-              <a href="{{ url_for('homepage') }}"></a>
-          </header>
-          <nav class="navbar" aria-label="Navegação principal">
-            <a href="#projeto" class="text-wrapper-2">Projeto</a>
-            <a href="{{ url_for('planetas') }}">Planetas</a>
-            <a href="#espaco" class="text-wrapper-2">Espaço</a>
-            <a href="{{ url_for('homepage') }}">Home</a>
-          </nav>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Explore o universo e descubra exoplanetas já descobertos e a probabilidade de vida neles."
+    />
+    <title>Genesis - Explore o Universo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/planetas.css') }}" />
+      <script src="{{ url_for('static', filename='js/carrossel.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/downloadButtom.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/painelComparar.js') }}"></script>
+  </head>
+  <body>
+    <main>
+      <header class="genesis-logo" role="banner">
+          <a href="{{ url_for('homepage') }}"></a>
+      </header>
+      <nav class="navbar" aria-label="Navegação principal">
+        <a href="#projeto" class="text-wrapper-2">Projeto</a>
+        <a href="{{ url_for('planetas') }}">Planetas</a>
+        <a href="#espaco" class="text-wrapper-2">Espaço</a>
+        <a href="{{ url_for('homepage') }}">Home</a>
+      </nav>
 
-            <div class="carousel-visuals-wrapper">
-                <div class="carousel-visuals">
-                    {% for categoria, lista_planetas in dashboard.items() %}
-                         {% for p in lista_planetas %}
-                            <div class="planet-slide" data-index="{{ loop.index0 }}">
-                                <img class="planet" src="{{ url_for('static', filename='img/planets/' ~ p.nome_planeta ~ '.png') }}" alt="{{ p.nome_planeta }}">
-                                <div class="painel-planet">
-                                    <p class="label_planet">
-                                        O que deseja fazer?
-                                    </p>
-                                    <button class="btn_compare">
-                                        <img class="icon_mini" src="{{ url_for('static', filename='img/Compare.png') }}">
-                                        <p>Adicionar à comparação</p>
-                                    </button>
-                                    <button class="btn_sabermais">
-                                        <img class="icon_mini" src="{{ url_for('static', filename='img/Info.png') }}">
-                                        <a href="{{ url_for('aboutmore',nome_planeta=p.nome_planeta) }}">
-                                            <p>Saber mais sobre {{p.nome_planeta}}</p>
-                                        </a>
-
-                                    </button>
-
-                                </div>
-                                <h2>{{ p.nome_planeta }}</h2>
+        <div class="carousel-visuals-wrapper">
+            <div class="carousel-visuals">
+                {% for categoria, lista_planetas in dashboard.items() %}
+                     {% for p in lista_planetas %}
+                        <div class="planet-slide" data-index="{{ loop.index0 }}">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox"
+                                       class="planet-selector"
+                                       value="{{ p.nome_planeta }}">
                             </div>
-                        {% endfor %}
-                    {% endfor %}
-                </div>
 
-                <button class="nav-button prev-button">
-                    <img src="{{ url_for('static', filename='img/left.png') }}" alt="Anterior">
-                </button>
-                <button class="nav-button next-button">
-                    <img src="{{ url_for('static', filename='img/rigth.png') }}" alt="Próximo">
-                </button>
+                            <img class="planet" src="{{ url_for('static', filename='img/planets/' ~ p.nome_planeta ~ '.png') }}" alt="{{ p.nome_planeta }}">
+                            <div class="painel-planet">
+                                <p class="label_planet">
+                                    O que deseja fazer?
+                                </p>
+                                <button class="btn_compare">
+                                    <img class="icon_mini" src="{{ url_for('static', filename='img/Compare.png') }}">
+                                    <p>Adicionar à comparação</p>
+                                </button>
+                                <button class="btn_sabermais">
+                                    <img class="icon_mini" src="{{ url_for('static', filename='img/Info.png') }}">
+                                    <a href="{{ url_for('aboutmore',nome_planeta=p.nome_planeta) }}">
+                                        <p>Saber mais sobre {{p.nome_planeta}}</p>
+                                    </a>
+
+                                </button>
+
+                            </div>
+                            <h2>{{ p.nome_planeta }}</h2>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
             </div>
 
-            <div class="carousel-data-container">
-                {% for categoria, lista_planetas in dashboard.items() %}
-                    {% for p in lista_planetas%}
-                        <div class="planeta-details" data-index="{{ loop.index0 }}">
-                            <div class="cards-container">
-                                <div class="data-card left-card">
+            <button class="nav-button prev-button">
+                <img src="{{ url_for('static', filename='img/left.png') }}" alt="Anterior">
+            </button>
+            <button class="nav-button next-button">
+                <img src="{{ url_for('static', filename='img/rigth.png') }}" alt="Próximo">
+            </button>
+        </div>
+
+        <div class="carousel-data-container">
+            {% for categoria, lista_planetas in dashboard.items() %}
+                {% for p in lista_planetas%}
+                    <div class="planeta-details" data-index="{{ loop.index0 }}">
+                        <div class="cards-container">
+                            <div class="data-card left-card">
+                                <div class="data-row">
+                                    <div class="data-label">Raio</div>
+                                    <div class="data-value">{{ p.raio_planeta }}</div>
+                                </div>
+                                <div class="data-row">
+                                    <div class="data-label">Ano</div>
+                                    <div class="data-value">{{ p.ano_descoberta }}</div>
+                                </div>
+                                <div class="data-row">
+                                    <div class="data-label">Massa</div>
+                                    <div class="data-value">{{ p.massa_planeta }}</div>
+                                </div>
+                                <div class="data-row">
+                                    <div class="data-label">Gravidade planeta</div>
+                                    <div class="data-value">{{ p.gravidade_planeta }}m/s²</div>
+                                </div>
+                                <div class="data-row">
+                                    <div class="data-label">Período de dias</div>
+                                    <div class="data-value">{{ p.periodo_orbita_dias }}dias</div>
+                                </div>
+                            </div>
+                            <div class="data-card center-card">
+                                    <div class="data-row">
+                                        <div class="data-label">Probabilidade de vida</div>
+                                        <div class="data-value">{{ p.categoria_habitabilidade() }}</div>
+                                    </div>
+
+                                    <div class="data-row">
+                                        <div class="data-label">Probabilidade (Índice)</div>
+                                        <div class="data-value">{{ p.calcular_provabilidade_vida() | round(2) }}</div>
+                                    </div>
+
+                                    <div class="data-row">
+                                        <div class="data-label">Temperatura</div>
+                                        <div class="data-value">{{ p.temperatura_equilibrio_planeta }}K°</div>
+                                    </div>
+
+                                    <div class="data-row">
+                                        <div class="data-label">Distância da terra</div>
+                                        <div class="data-value">{{ p.distancia_planeta }}</div>
+                                    </div>
+                                    <div class="data-row">
+                                        <div class="data-label">Distância da terra</div>
+                                        <div class="data-value">{{ p.distancia_planeta }}</div>
+                                    </div>
+                            </div>
+
+                            <div class="data-card rigth-card">
                                     <div class="data-row">
                                         <div class="data-label">Raio</div>
                                         <div class="data-value">{{ p.raio_planeta }}</div>
@@ -82,79 +136,41 @@
                                     </div>
                                     <div class="data-row">
                                         <div class="data-label">Gravidade planeta</div>
-                                        <div class="data-value">{{ p.gravidade_planeta }}m/s²</div>
+                                        <div class="data-value">{{ p.gravidade_planeta }}</div>
                                     </div>
-                                    <div class="data-row">
-                                        <div class="data-label">Período de dias</div>
-                                        <div class="data-value">{{ p.periodo_orbita_dias }}dias</div>
-                                    </div>
-                                </div>
-                                <div class="data-card center-card">
-                                        <div class="data-row">
-                                            <div class="data-label">Probabilidade de vida</div>
-                                            <div class="data-value">{{ p.categoria_habitabilidade() }}</div>
-                                        </div>
-
-                                        <div class="data-row">
-                                            <div class="data-label">Probabilidade (Índice)</div>
-                                            <div class="data-value">{{ p.calcular_provabilidade_vida() | round(2) }}</div>
-                                        </div>
-
-                                        <div class="data-row">
-                                            <div class="data-label">Temperatura</div>
-                                            <div class="data-value">{{ p.temperatura_equilibrio_planeta }}K°</div>
-                                        </div>
-
-                                        <div class="data-row">
-                                            <div class="data-label">Distância da terra</div>
-                                            <div class="data-value">{{ p.distancia_planeta }}</div>
-                                        </div>
-                                        <div class="data-row">
-                                            <div class="data-label">Distância da terra</div>
-                                            <div class="data-value">{{ p.distancia_planeta }}</div>
-                                        </div>
-                                </div>
-
-                                <div class="data-card rigth-card">
-                                        <div class="data-row">
-                                            <div class="data-label">Raio</div>
-                                            <div class="data-value">{{ p.raio_planeta }}</div>
-                                        </div>
-                                        <div class="data-row">
-                                            <div class="data-label">Ano</div>
-                                            <div class="data-value">{{ p.ano_descoberta }}</div>
-                                        </div>
-                                        <div class="data-row">
-                                            <div class="data-label">Massa</div>
-                                            <div class="data-value">{{ p.massa_planeta }}</div>
-                                        </div>
-                                        <div class="data-row">
-                                            <div class="data-label">Gravidade planeta</div>
-                                            <div class="data-value">{{ p.gravidade_planeta }}</div>
-                                        </div>
-                                </div>
                             </div>
                         </div>
-                    {% endfor %}
+                    </div>
                 {% endfor %}
-            </div>
-
-        </main>
-
-        <button id="trigger-download-btn" class="botao_download">
-                <img class="botao-download-icone" src="{{ url_for('static', filename='img/download.png')}}" alt="Baixar Dataset">
-        </button>
-
-        <div id="aviso-download-box" class="aviso-box">
-                 <p>Deseja baixar o dataset 2025.02.03_05.09.36.csv?</p>
-                 <div class="aviso-botoes-container">
-                         <button id="botao-sim" class="botao-sim"
-                       data-download-url="{{ url_for('download_dataset', filename='PS_2025.02.03_05.09.36.csv') }}">
-                    Sim
-                </button>
-
-                         <button id="botao-nao" class="botao-nao">Não</button>
-                 </div>
+            {% endfor %}
         </div>
-      </body>
-    </html>
+
+    </main>
+
+    <button id="trigger-download-btn" class="botao_download">
+            <img class="botao-download-icone" src="{{ url_for('static', filename='img/download.png')}}" alt="Baixar Dataset">
+    </button>
+
+    <div id="aviso-download-box" class="aviso-box">
+             <p>Deseja baixar o dataset 2025.02.03_05.09.36.csv?</p>
+             <div class="aviso-botoes-container">
+                     <button id="botao-sim" class="botao-sim"
+                   data-download-url="{{ url_for('download_dataset', filename='PS_2025.02.03_05.09.36.csv') }}">
+                Sim
+            </button>
+
+                     <button id="botao-nao" class="botao-nao">Não</button>
+             </div>
+    </div>
+
+    <div id="compare-bar" class="compare-bar">
+        <div class="compare-info">
+            <span id="count-selected">0</span> planetas selecionados
+        </div>
+        <button id="btn-compare" class="btn-compare-action" disabled>
+            Comparar
+        </button>
+    </div>
+
+  </body>
+</html>
