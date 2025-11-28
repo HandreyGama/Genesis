@@ -113,7 +113,7 @@ body {
     padding-right: 20px;
     margin: 0;
     display: block;
-
+    overflow-y: auto; /* Scroll apenas para o texto */
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
