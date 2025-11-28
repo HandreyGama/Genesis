@@ -1,17 +1,11 @@
-/*
- * ----------------------------------------------------
- * 1. VARIÁVEIS E ESTILOS GLOBAIS
- * ----------------------------------------------------
- */
 
 :root {
-    /* Variáveis */
+
     --color_text--: white;
     --color_bg--: transparent;
 }
 
 body {
-    /* Consolidação de regras para BODY */
     background-image: url("/static/img/background.png");
     background-size: cover;
     background-position: center;
@@ -20,20 +14,13 @@ body {
     width: 100vw;
     overflow: hidden;
 
-    /* Configuração de layout principal */
     display: flex;
-    flex-direction: column; /* Para empilhar navbar e content */
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    flex-direction: column;
+    align-items: center;
 }
 
-/*
- * ----------------------------------------------------
- * 2. ESTILOS DE ESTRUTURA E LAYOUT
- * ----------------------------------------------------
- */
 
 .side {
-    /* Ocultando a sidebar */
     position: absolute;
     top: 0;
     left: 0;
@@ -45,35 +32,33 @@ body {
 }
 
 .genesis-logo {
-    /* Posicionamento do logo, se ele existir */
-    position: absolute; /* Para que ele não afete o layout flexbox do body */
+
+    position: absolute;
     top: 30px;
     left: 5%;
     z-index: 21;
-    display: block; /* Garante que está visível se existir */
+    display: block;
 }
 
 
 .content {
-    /* Área principal de conteúdo - ocupa o espaço restante após a navbar */
-    flex: 1; /* Permite que o .content cresça e ocupe o espaço disponível */
+
+    flex: 1;
     width: 100%;
     background: transparent;
-    padding-top: 0; /* Ajuste para não ter padding excessivo */
+    padding-top: 0;
 
-    /* Configurações de Flexbox */
     display: flex;
-    flex-direction: column; /* Organiza os itens (ex: conteudo_content) em coluna */
-    align-items: center; /* Centraliza horizontalmente */
-    justify-content: flex-start; /* Alinha ao topo */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 
-    /* Scrollbar (se necessário para o .content em si) */
+
     scrollbar-width: thin;
     scrollbar-color: rgba(255,255,255,0.3) transparent;
-    overflow-y: auto; /* Pode ser necessário se o conteúdo exceder a altura */
+    overflow-y: auto;
 }
 
-/* Scrollbar do content (webkit) */
 .content::-webkit-scrollbar { width: 8px; }
 .content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 4px; }
 .content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 4px; }
@@ -81,43 +66,38 @@ body {
 
 
 .navbar_content {
-    /* Menu de Navegação - agora é um item separado do body */
+
     width: 98%;
-    max-width: 1800px; /* Limite para não esticar demais */
+    max-width: 1800px;
     height: auto;
     padding-top: 30px;
     padding-right: 60px;
-    margin: 0 auto; /* Centraliza a navbar se a largura for menor que max-width */
+    margin: 0 auto;
 
     display: flex;
-    justify-content: flex-end; /* Alinha itens do menu à direita */
+    justify-content: flex-end;
     align-items: center;
     gap: 40px;
 }
 
-/*
- * ----------------------------------------------------
- * 3. ESTILOS DO CONTEÚDO PRINCIPAL (CARD)
- * ----------------------------------------------------
- */
 
 .conteudo_content {
-    /* Card principal que contém .sobre e .planet */
-    width: 90%; /* Largura total do card */
-    max-width: 1200px; /* Limite de largura para o card */
-    height: 75vh; /* Altura do card baseada na viewport */
-    margin-top: 20px; /* Espaço do topo */
-    padding: 50px; /* Padding interno para que .sobre e .planet não colem nas bordas */
-    margin-bottom: 20px; /* Espaço abaixo do card */
 
-    /* Configurações de Flexbox para organizar .sobre e .planet lado a lado */
+    width: 90%;
+    max-width: 1200px;
+    height: 75vh;
+    margin-top: 20px;
+    padding: 50px;
+    margin-bottom: 20px;
+
+
     display: flex;
     flex-direction: row;
-    align-items: center; /* Centraliza verticalmente .sobre e .planet */
-    justify-content: center; /* Centraliza horizontalmente o bloco inteiro */
-    gap: 50px; /* Espaçamento entre .sobre e .planet */
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
 
-    /* Estilo de "vidro fosco" para o card principal */
+
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -126,60 +106,44 @@ body {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
-
-/*
- * ----------------------------------------------------
- * 4. SEÇÃO SOBRE (TEXTO)
- * ----------------------------------------------------
- */
-
 .sobre {
-    /* Área de texto - ocupa 60% da largura do .conteudo_content */
-    width: 60%;
-    height: 100%; /* Ocupa toda a altura disponível dentro de .conteudo_content */
-    overflow-y: auto; /* Scroll apenas para o texto */
-    padding-right: 20px; /* Padding para o scrollbar não ficar colado no texto */
-    margin: 0; /* Reset de margens, o padding do pai (conteudo_content) já resolve o espaçamento */
-    display: block; /* Garante que se comporte como um bloco */
 
-    /* Removido o background/backdrop-filter/shadow daqui,
-       pois agora o .conteudo_content é o card principal */
+    width: 60%;
+    height: 100%;
+    padding-right: 20px;
+    margin: 0;
+    display: block;
+
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
     border: none;
 }
-
-/* Scrollbar do sobre (webkit) */
 .sobre::-webkit-scrollbar { width: 8px; }
 .sobre::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 4px; }
 .sobre::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 4px; }
 .sobre::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.5); }
 
 
-/*
- * ----------------------------------------------------
- * 5. SEÇÃO PLANETA (IMAGEM)
- * ----------------------------------------------------
- */
+
 
 .planet {
-    /* Área da imagem do planeta - ocupa 40% da largura do .conteudo_content */
-    width: 40%;
-    height: 100%; /* Ocupa toda a altura disponível */
-    display: flex;
-    justify-content: center; /* Centraliza a imagem do planeta horizontalmente */
-    align-items: center; /* Centraliza a imagem do planeta verticalmente */
 
-    background: none; /* Removido fundos desnecessários */
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: none;
     border: none;
     box-shadow: none;
 }
 
 .planet img {
-    /* Estilo da Imagem do Planeta */
-    width: 100%; /* Ocupa 100% da largura de .planet */
-    max-width: 400px; /* Limite de tamanho */
+
+    width: 100%;
+    max-width: 400px;
     height: auto;
     filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15)); /* Sombra original */
     animation: flutuar 6s ease-in-out infinite;
@@ -191,11 +155,6 @@ body {
     100% { transform: translateY(0px); }
 }
 
-/*
- * ----------------------------------------------------
- * 6. TIPOGRAFIA E ELEMENTOS DIVERSOS
- * ----------------------------------------------------
- */
 
 .text-wrapper-2,
 .text-wrapper-3,
@@ -203,25 +162,25 @@ body {
 .sobre h2,
 .sobre p,
 .p-ia {
-    /* Estilo base para os textos (garante a sombra) */
+
     color: white;
     text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
 
 .navbar_content a {
-    /* Estilo de links antigos (se houver, mas .link-menu é mais específico) */
+
     color: white;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-/* Títulos do corpo de texto */
+
 .label_planet,
 .sobre h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 1.5em; /* Retornando ao tamanho original da primeira declaração */
+    font-size: 1.5em;
     color: #4a90e2;
     text-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
 
@@ -231,21 +190,21 @@ body {
     display: inline-block;
 }
 
-/* Título Principal (h1 dentro de .sobre) - Estilo mais específico */
+
 .sobre > h1.label_planet {
-    font-size: 3em; /* Retornando ao tamanho original */
+    font-size: 3em;
     color: white;
     border: none;
     text-shadow: 0 0 20px rgba(255,255,255,0.5);
     margin-top: 0;
-    margin-bottom: 0; /* Sem margem para o título principal */
+    margin-bottom: 0;
 }
 
 /* Parágrafos */
 .sobre p,
 .p-ia {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px; /* Retornando ao tamanho original */
+    font-size: 16px;
     line-height: 1.8;
     color: #e0e0e0;
     text-align: justify;
@@ -258,7 +217,7 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Estilos Específicos do Menu (Links) */
+
 .link-menu {
     font-family: "Poppins", Helvetica, sans-serif;
     color: white;
@@ -295,24 +254,16 @@ body {
     margin-left: 20px;
     transform: scale(1.2);
 }
-/*
- * ----------------------------------------------------
- * 7. MEDIA QUERIES (RESPONSIVIDADE)
- * ----------------------------------------------------
- */
 
 @media (max-width: 768px) {
-
-    /* --- LAYOUT PRINCIPAL E NAVEGAÇÃO --- */
-
     body {
-        /* Permite scroll se o conteúdo for muito longo */
+
         overflow-y: auto;
         overflow-x: hidden;
     }
 
     .navbar_content {
-        /* Altera o alinhamento para ter espaço para o logo/menu */
+
         justify-content: center;
         padding-right: 0;
         padding-left: 0;
@@ -320,51 +271,49 @@ body {
     }
 
     .link-menu {
-        font-size: 16px; /* Reduz o tamanho do texto do menu */
+        font-size: 16px;
     }
 
     .genesis-logo {
-        /* Oculta o logo ou reposiciona se necessário, mas vou manter o estilo atual. */
+
         left: 50%;
         transform: translateX(-50%);
         top: 10px;
     }
 
-    /* --- CARD PRINCIPAL (.conteudo_content) --- */
 
     .conteudo_content {
-        /* Empilha os elementos em coluna para telas pequenas */
+
         flex-direction: column;
-        height: auto; /* Permite que cresça conforme o conteúdo */
-        width: 95%; /* Ocupa quase toda a largura */
-        padding: 20px; /* Reduz o padding interno */
+        height: auto;
+        width: 95%;
+        padding: 20px;
         margin-top: 10px;
-        gap: 30px; /* Reduz o espaço entre os elementos empilhados */
+        gap: 30px;
     }
 
-    /* --- SEÇÃO PLANETA --- */
+
 
     .planet {
-        order: 1; /* Coloca o planeta acima do texto (opcional, mas comum) */
+        order: 1;
         width: 100%;
         height: auto;
     }
 
     .planet img {
-        max-width: 200px; /* Reduz o tamanho do planeta */
-        animation: flutuar 4s ease-in-out infinite; /* Deixa a animação um pouco mais rápida */
+        max-width: 200px;
+        animation: flutuar 4s ease-in-out infinite;
     }
 
-    /* --- SEÇÃO SOBRE (TEXTO) --- */
+
 
     .sobre {
-        order: 2; /* Coloca o texto abaixo do planeta */
+        order: 2;
         width: 100%;
         height: auto;
-        padding: 0; /* Remove padding extra, pois o .conteudo_content já tem */
+        padding: 0;
     }
 
-    /* --- TIPOGRAFIA --- */
 
     .sobre > h1.label_planet {
         font-size: 2.5em;
