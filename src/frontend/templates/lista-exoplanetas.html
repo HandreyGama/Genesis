@@ -4,45 +4,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Genesis - Todos os Exoplanetas</title>
-    <meta name="description" content="Explore todos os exoplanetas do sistema TRAPPIST-1" />
+    <meta name="description" content="Explore a lista completa de exoplanetas." />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/lista-exoplanetas.css') }}" />
+
   </head>
   <body>
-    <script src="script.js" defer></script>
-    <main class="frame" data-model-id="40:77">
-      <img class="line" src="https://c.animaapp.com/tHmQl0Vg/img/line-14.svg" alt="" role="presentation" />
+
+    <main class="frame">
       <img
         class="background"
         src="{{ url_for('static', filename='img/background.png') }}"
         alt="Space background with stars and nebula"
       />
       <div class="rectangle" aria-hidden="true"></div>
+
       <header class="header">
         <nav class="header-nav" aria-label="Main navigation">
-
           <a href="#projeto" class="text-wrapper">Projeto</a>
-            <a href="{{ url_for('planetas') }}" class="text-wrapper">Planetas</a>
+          <a href="{{ url_for('planetas') }}" class="text-wrapper">Planetas</a>
           <a href="{{ url_for('espaco') }}" class="text-wrapper">Espaço</a>
-            <a href="{{ url_for('homepage') }}" class="div">Home</a>
+          <a href="{{ url_for('homepage') }}" class="div">Home</a>
         </nav>
       </header>
       <div class="genesis-logo" role="img" aria-label="Genesis Logo"></div>
       <h1 class="text-wrapper-2">Todos os Exoplanetas</h1>
-      <img class="img" src="https://c.animaapp.com/tHmQl0Vg/img/line-15.svg" alt="" role="presentation" />
-      <section class="exoplanets-section">
-        <div class="exoplanets-container">
-          <ul class="exoplanets-list" role="list" id="exoplanetsList">
 
+      <section class="exoplanets-section">
+
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar por nome do exoplaneta..." aria-label="Buscar exoplanetas">
+            <button id="search-button">
+                <img class="icon_mini" src="{{ url_for('static', filename='img/lupa.png') }}">
+            </button>
+        </div>
+
+        <div class="exoplanets-container">
+
+          <p id="no-results-message" class="mensagem-sem-resultados" style="display: none;">
+              😕 Nenhum exoplaneta encontrado com este nome. Tente novamente!
+          </p>
+
+          <ul class="exoplanets-list" role="list" id="exoplanetsList">
               {% for p in lista_planetas %}
-            <li class="exoplanet-item">
-              <div class="rectangle-2" aria-hidden="true"></div>
-              <span class="text-wrapper-3"> {{ p.nome_planeta}}</span>
-            </li>
+                <li class="acordeao-item" role="listitem">
+                    <div class="acordeao-header">
+                        <span class="nome-planeta">{{ p.nome_planeta }}</span>
+                        <span class="icone-expansao">+</span>
+                    </div>
+
+                    <div class="acordeao-body">
+                        <div class="acordeao-acoes">
+                            <a href="{{ url_for('aboutmore', nome_planeta=p.nome_planeta) }}" class="btn-saber-mais">
+                                Saber Mais →
+                            </a>
+                        </div>
+                    </div>
+                </li>
               {% endfor %}
           </ul>
         </div>
       </section>
+
+      <button id="trigger-download-btn" class="botao_download">
+            <img class="botao-download-icone" src="{{ url_for('static', filename='img/download.png')}}" alt="Baixar Dataset">
+      </button>
+
+      <div id="aviso-download-box" class="aviso-box">
+             <p>Deseja baixar o dataset 2025.02.03_05.09.36.csv?</p>
+             <div class="aviso-botoes-container">
+                     <button id="botao-sim" class="botao-sim"
+                   data-download-url="{{ url_for('download_dataset', filename='PS_2025.02.03_05.09.36.csv') }}">
+                Sim
+            </button>
+            <button id="botao-nao" class="botao-nao">Não</button>
+             </div>
+      </div>
+
     </main>
+
+    <script src="{{ url_for('static', filename='js/acodeao.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/downloadButtom.js') }}"></script>
   </body>
 </html>

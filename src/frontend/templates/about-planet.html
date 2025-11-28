@@ -26,7 +26,6 @@
                 <img src="{{ url_for('static', filename='img/planets/' ~ planeta_changed.nome_planeta ~ '.png') }}" alt="{{ planeta_changed.nome_planeta }}">
             </div>
             <div class="sobre">
-                <h1 class="label_planet">{{planeta_changed.nome_planeta}}</h1>
                 <p class="p-ia">
                     {{ resposta_ia|safe}}
                 </p>
