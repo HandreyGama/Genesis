@@ -1,6 +1,4 @@
-
 :root {
-
     --color_text--: white;
     --color_bg--: transparent;
 }
@@ -10,29 +8,19 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-
-.side {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    background: none;
-    border: none;
-    z-index: 20;
-}
-
+/* ── LOGO ── */
 .genesis-logo {
-
     position: absolute;
     top: 30px;
     left: 5%;
@@ -40,53 +28,48 @@ body {
     display: block;
 }
 
-
+/* ── CONTEÚDO ── */
 .content {
     display: flex;
     flex: 1;
     width: 100%;
     background: transparent;
-    padding-top: 0;
-
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
-
     scrollbar-width: thin;
     scrollbar-color: rgba(255,255,255,0.3) transparent;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .content::-webkit-scrollbar { width: 8px; }
-.content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 4px; }
-.content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 4px; }
-.content::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.5); }
+.content::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
+.content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+.content::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
 
-
+/* ── NAVBAR ── */
 .navbar_content {
-
     width: 98%;
     max-width: 1800px;
     height: auto;
     padding-top: 30px;
     padding-right: 60px;
     margin: 0 auto;
-
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 40px;
 }
 
-
+/* ── GRID PRINCIPAL ── */
 .conteudo_content {
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 70px;
-    grid-template-areas: "planeta sobre""input-ia input-ia";
-
+    grid-template-areas:
+        "planeta sobre"
+        "input-ia input-ia";
     width: 90%;
     max-width: 1200px;
     height: 75vh;
@@ -96,8 +79,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 50px;
-
-
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -106,86 +87,26 @@ body {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
+/* ── SOBRE ── */
 .sobre {
     grid-area: sobre;
     width: 100%;
     height: 100%;
     padding-right: 20px;
     margin: 0;
-    overflow-y: auto; /* Scroll apenas para o texto */
+    overflow-y: auto;
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
     border: none;
 }
+
 .sobre::-webkit-scrollbar { width: 8px; }
-.sobre::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 4px; }
-.sobre::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 4px; }
-.sobre::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.5); }
+.sobre::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
+.sobre::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+.sobre::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
 
-/* ======================================================= */
-/* 🤖 Seção Input Chat IA (Centralizado e Row) */
-/* ======================================================= */
-
-.input-chat-ia{
-    /* Propriedades para centralizar o grupo (Container Pai) */
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Centraliza verticalmente (no meio da altura) */
-    justify-content: center; /* Centraliza horizontalmente o grupo Input+Botão */
-    grid-area: input-ia;
-    height: 100%;
-    width: 100%;
-    /* background-color: red; (Remova a cor de teste) */
-}
-
-/* 🎯 Adicionamos um contêiner interno invisível para limitar a largura do chat */
-.input-chat-ia .input-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 40%;/* Ocupa 100% do .input-chat-ia */
-    max-width: 800px; /* Limita a largura máxima do chat centralizado */
-    padding: 8px;
-    background-color: #2E2E2E; /* Cor de superfície do Gemini */
-    border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* ⌨️ Estilo do Campo INPUT (Elemento filho) */
-.input-chat-ia input{
-    flex: 1;
-    padding: 10px 20px;
-    border: none;
-    background-color: transparent; /* Fundo transparente para usar o background do contêiner */
-    color: white;
-    font-size: 16px;
-    outline: none;
-    margin-right: 10px; /* Espaço entre o input e o botão */
-    /* background-color: violet; (Remova a cor de teste) */
-}
-
-/* Exemplo de Estilo do Botão (Assumindo que está dentro do .input-container) */
-.btn-enviar {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: none;
-    background-color: #4A90E2;
-    color: white;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0; /* Impede que o botão encolha */
-}
-.btn-enviar img{
-    width: 30px;
-    height: 30px;
-}
-
-
+/* ── PLANETA ── */
 .planet {
     grid-area: planeta;
     width: 100%;
@@ -193,18 +114,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     background: none;
     border: none;
     box-shadow: none;
 }
 
 .planet img {
-
     width: 100%;
     max-width: 400px;
     height: auto;
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15)); /* Sombra original */
+    filter: drop-shadow(0 0 30px rgba(255,255,255,0.15));
     animation: flutuar 6s ease-in-out infinite;
 }
 
@@ -214,44 +133,134 @@ body {
     100% { transform: translateY(0px); }
 }
 
+/* ── CHAT IA ── */
+.input-chat-ia {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    grid-area: input-ia;
+    height: 100%;
+    width: 100%;
+}
 
-.text-wrapper-2,
-.text-wrapper-3,
-.label_planet,
-.sobre h2,
-.sobre p,
-.p-ia {
+.input-chat-ia .input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    max-width: 100%;
+    padding: 8px 12px;
+    background-color: #2E2E2E;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
 
+.input-chat-ia input {
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    margin-right: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.input-chat-ia input::placeholder { color: #aaa; }
+
+.btn-enviar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background-color: #4A90E2;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-enviar:hover { background-color: #3a7bd5; transform: scale(1.05); }
+.btn-enviar img { width: 22px; height: 22px; }
+
+/* ── CHAT CONTAINER ── */
+.chat-ia-container {
+    grid-area: sobre;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-right: 20px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.chat-historico {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.chat-historico::-webkit-scrollbar { width: 8px; }
+.chat-historico::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
+.chat-historico::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+
+.ia-message, .user-message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 85%;
+    margin-bottom: 12px;
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color_text--);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.ia-message {
+    background-color: #404F78;
+    margin-right: auto;
+    border-top-left-radius: 6px;
+}
+
+.user-message {
+    background-color: #3A3A3A;
+    margin-left: auto;
+    text-align: left;
+    border-bottom-right-radius: 6px;
+}
+
+/* ── TEXTOS ── */
+.text-wrapper-2, .text-wrapper-3, .label_planet,
+.sobre h2, .sobre p, .p-ia {
     color: white;
     text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
 
-.navbar_content a {
+.navbar_content a { color: white; text-transform: uppercase; font-weight: bold; }
 
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-
-.label_planet,
-.sobre h2 {
+.label_planet, .sobre h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-style: normal;
-    font-size: 1.5em;
+    font-size: 40px;
     color: #4a90e2;
-    text-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
-
+    text-shadow: 0 0 10px rgba(74,144,226,0.4);
     margin-top: 20px;
     margin-bottom: 10px;
-    border-bottom: 1px solid rgba(74, 144, 226, 0.3);
+    border-bottom: 1px solid rgba(74,144,226,0.3);
     display: inline-block;
 }
 
-
 .sobre > h1.label_planet {
-    font-size: 3em;
+    font-size: 40px;
     color: white;
     border: none;
     text-shadow: 0 0 20px rgba(255,255,255,0.5);
@@ -259,28 +268,23 @@ body {
     margin-bottom: 0;
 }
 
-/* Parágrafos */
-.sobre p,
-.p-ia {
+.sobre p, .p-ia {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 30px;
     line-height: 1.8;
     color: #e0e0e0;
     text-align: justify;
     font-weight: 400;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
 }
 
-.p-ia:hover {
-    color: white;
-    transition: color 0.3s ease;
-}
+.p-ia:hover { color: white; transition: color 0.3s ease; }
 
-
+/* ── LINKS NAVBAR ── */
 .link-menu {
     font-family: "Poppins", Helvetica, sans-serif;
     color: white;
-    font-size: 28px;
+    font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
@@ -301,60 +305,104 @@ body {
     transition: width 0.3s ease;
 }
 
-.link-menu:hover::before {
-    width: 100%;
-}
+.link-menu:hover::before { width: 100%; }
+.link-menu:hover { color: #4a90e2; }
 
-.link-menu:hover {
-    color: #4a90e2;
-}
+/* ════════════════════════════════
+   BREAKPOINTS RESPONSIVOS
+   ════════════════════════════════ */
 
-.btn_theme {
-    margin-left: 20px;
-    transform: scale(1.2);
-}
-
-@media (max-width: 768px) {
-    body {
-
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .navbar_content {
-
+/* Tablet (max 1024px) */
+@media screen and (max-width: 1024px) {
+    .conteudo_content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "planeta planeta"
+            "sobre sobre"
+            "input-ia input-ia";
+        width: 90%;
+        max-width: 1200px;
+        height: 75vh;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        align-items: center;
         justify-content: center;
-        padding-right: 0;
-        padding-left: 0;
-        gap: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        padding: 30px;
+        gap: 30px;
+        min-height: 70vh;
     }
 
-    .link-menu {
-        font-size: 16px;
-    }
+    .navbar_content { padding-right: 30px; gap: 25px; }
+    .link-menu { font-size: 16px; }
+    .planet img { max-width: 300px; }
+    .sobre > h1.label_planet { font-size: 2em; }
+}
 
+/* Mobile (max 768px) */
+@media screen and (max-width: 768px) {
+    body { overflow-y: auto; }
+
+    /* Logo centralizado */
     .genesis-logo {
-
         left: 50%;
         transform: translateX(-50%);
         top: 10px;
     }
 
-
-    .conteudo_content {
-
-        flex-direction: column;
-        height: auto;
-        width: 95%;
-        padding: 20px;
-        margin-top: 10px;
-        gap: 30px;
+    /* Navbar igual às outras páginas — barra fixa no rodapé */
+    .navbar_content {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        gap: 0;
+        padding: 10px 0;
+        margin: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+        z-index: 1000;
     }
 
+    .link-menu {
+        flex: 1;
+        text-align: center;
+        font-size: 11px;
+        padding: 5px 2px;
+        letter-spacing: 0;
+        text-shadow: none;
+    }
 
+    .link-menu::before { display: none; }
+
+    /* Grid vira coluna */
+    .conteudo_content {
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+        height: auto;
+        min-height: unset;
+        padding: 20px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        gap: 20px;
+        border-radius: 20px;
+    }
 
     .planet {
-        order: 1;
         width: 100%;
         height: auto;
     }
@@ -364,89 +412,79 @@ body {
         animation: flutuar 4s ease-in-out infinite;
     }
 
-
-
     .sobre {
-        order: 2;
         width: 100%;
         height: auto;
+        max-height: 45vh;
+        padding: 0;
+        overflow-y: auto;
+    }
+
+    .chat-ia-container {
+        width: 100%;
+        height: 40vh;
+        padding-right: 0;
+    }
+
+    .input-chat-ia {
+        width: 100%;
         padding: 0;
     }
 
-
-    .sobre > h1.label_planet {
-        font-size: 2.5em;
-        margin-bottom: 10px;
+    .input-chat-ia .input-container {
+        height: 52px;
+        max-width: 100%;
     }
 
-    .label_planet,
-    .sobre h2 {
-        font-size: 1.2em;
-        margin-top: 15px;
+    /* Tamanhos de fonte legíveis no mobile */
+    .sobre > h1.label_planet { font-size: 1.8em; }
+    .label_planet, .sobre h2 { font-size: 1.1em; margin-top: 15px; }
+    .sobre p, .p-ia { font-size: 14px; line-height: 1.7; }
+    .ia-message, .user-message { font-size: 14px; }
+    .input-chat-ia input { font-size: 15px; }
+    .btn-enviar { width: 38px; height: 38px; }
+    .btn-enviar img { width: 20px; height: 20px; }
+}
+
+/* Mobile pequeno (max 480px) */
+@media screen and (max-width: 480px) {
+    .link-menu { font-size: 20px; }
+
+    .conteudo_content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "planeta planeta"
+            "sobre sobre"
+            "input-ia input-ia";
+        width: 90%;
+        max-width: 1200px;
+        height: 75vh;
+        margin-top: 20px;
+        padding: 50px;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        width: 95%;
+        padding: 15px;
+        gap: 15px;
+        margin-top: 70px;
+        margin-bottom: 75px;
     }
 
-    .sobre p,
-    .p-ia {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-    .caixa_pergunta p {
-        color: white;
-    }
-}
-/* ======================================================= */
-/* 💬 Novo Container do Chat IA */
-/* ======================================================= */
-.chat-ia-container {
-    /* Ocupa a mesma área do grid que o 'sobre' */
-    grid-area: sobre;
+    .planet img { max-width: 160px; }
 
-    /* Configuração Flexbox para empilhar o histórico verticalmente */
-    display: flex; /* Alternado entre 'flex' e 'none' pelo JS */
-    flex-direction: column;
-
-    width: 100%;
-    height: 100%;
-    padding-right: 20px;
-    margin: 0;
-
-    /* Mantém o histórico rolável */
-    overflow: hidden;
-}
-
-/* Área de Histórico da Conversa */
-.chat-historico {
-    flex: 1; /* Ocupa a maior parte do espaço vertical */
-    overflow-y: auto;
-    padding-right: 10px;
-    margin-bottom: 10px;
-
-    /* Copie e cole os estilos de scrollbar aqui também */
-    /* Ex: .chat-historico::-webkit-scrollbar { width: 8px; } */
-}
-
-/* Mensagens (Para ter o estilo Gemini) */
-.ia-message, .user-message {
-    padding: 10px 15px;
-    border-radius: 18px;
-    max-width: 85%;
-    margin-bottom: 12px;
-    word-wrap: break-word;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--color-text);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.ia-message {
-    background-color: #404F78; /* Cor IA */
-    margin-right: auto;
-    border-top-left-radius: 6px;
-}
-
-.user-message {
-    background-color: #3A3A3A; /* Cor Usuário */
-    margin-left: auto;
-    text-align: left;
-    border-bottom-right-radius: 6px;
+    .sobre > h1.label_planet { font-size: 40px; font-family: poppins;}
+    .label_planet, .sobre h2 { font-size: 30px; font-family: poppins; }
+    .sobre p, .p-ia { font-size: 30px; font-family: poppins;}
+    .ia-message, .user-message { font-size: 30px; font-family: poppins; }
+    .input-chat-ia input { font-size: 30px; font-family: poppins;}
 }

@@ -7,6 +7,7 @@
     <meta name="description" content="Explore a lista completa de exoplanetas." />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/lista-exoplanetas.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}" />
 
   </head>
   <body>
@@ -20,8 +21,8 @@
       <div class="rectangle" aria-hidden="true"></div>
 
       <header class="header">
-        <nav class="header-nav" aria-label="Main navigation">
-          <a href="https://github.com/HandreyGama/Genesis" class="text-wrapper">Projeto</a>
+        <nav class="navbar" aria-label="Main navigation">
+          <a href="https://github.com/vitao-al/Genesis" class="text-wrapper">Projeto</a>
           <a href="{{ url_for('planetas') }}" class="text-wrapper">Planetas</a>
           <a href="{{ url_for('espaco') }}" class="text-wrapper">Espaço</a>
           <a href="{{ url_for('homepage') }}" class="div">Home</a>

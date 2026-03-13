@@ -1,4 +1,4 @@
-/* CONFIGURAÇÕES GERAIS E VARIÁVEIS */
+/* CONFIGURAÇÕES GERAIS */
 * {
     margin: 0;
     padding: 0;
@@ -6,18 +6,17 @@
 }
 
 :root {
-    --color_text--: #EAEAEA; /* Cor do texto principal (claro) */
-    --highlight-color: white; /* Cor de destaque (ciano claro) */
+    --color_text--: #EAEAEA;
+    --highlight-color: white;
     font-family: "Poppins", sans-serif;
 }
 
-/* Layout do body para suporte a scrollbar customizada no Firefox */
 body {
     scrollbar-width: thin;
     scrollbar-color: rgba(255,255,255,0.3) transparent;
 }
 
-/* LAYOUT GERAL (FRAME) */
+/* ── FRAME ── */
 .frame {
     min-height: 100vh;
     width: 100%;
@@ -34,29 +33,24 @@ body {
     z-index: 1;
 }
 
-/* FRAME .RECTANGLE (CORRIGIDO: REMOVIDO O OVERFLOW: AUTO) */
 .frame .rectangle {
     position: absolute;
-    top: 145px;
+    top: 130px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
     max-width: 1351px;
-    height: 773px;
-
-    /* ESTILOS DE FUNDO DO CÓDIGO 2 */
+    min-height: 773px;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 30px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-
     z-index: 5;
-    /* overflow: auto; foi removido daqui */
 }
 
-/* CABEÇALHO */
+/* ── HEADER ── */
 .frame .header {
     display: flex;
     width: 100%;
@@ -73,23 +67,26 @@ body {
 .frame .header-nav {
     display: flex;
     gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.frame .text-wrapper, .frame .div {
+.frame .text-wrapper,
+.frame .div {
     color: var(--color_text--);
     text-decoration: none;
     font-weight: 500;
 }
 
-.frame .div { font-size: 30.6px; }
-.frame .text-wrapper { font-size: 20px; }
+.frame .div { font-size: 24px; }
+.frame .text-wrapper { font-size: 18px; }
 
 .frame .genesis-logo {
     position: absolute;
     top: 33px;
     left: 43px;
-    width: 211px;
-    height: 91px;
+    width: 180px;
+    height: 78px;
     z-index: 20;
     background-image: url(https://c.animaapp.com/tHmQl0Vg/img/genesislogo--2--1-1@2x.png);
     background-size: cover;
@@ -98,16 +95,17 @@ body {
 
 .frame .text-wrapper-2 {
     position: absolute;
-    top: 184px;
+    top: 160px;
     left: 50%;
     transform: translateX(-50%);
     font-weight: 500;
     color: #ffffff;
-    font-size: 30.6px;
+    font-size: 24px;
     z-index: 10;
+    white-space: nowrap;
 }
 
-/* SEÇÃO DE CONTEÚDO (ACORDEÃO CONTAINER) */
+/* ── SEÇÃO PRINCIPAL ── */
 .exoplanets-section {
     position: absolute;
     top: 17%;
@@ -115,12 +113,12 @@ body {
     transform: translateX(-50%);
     width: 80%;
     max-width: 1200px;
-    height: 670px; /* Altura fixa para permitir a rolagem interna */
+    height: 670px;
     z-index: 10;
     padding-top: 50px;
 }
 
-/* --- BARRA DE PESQUISA --- */
+/* ── BARRA DE PESQUISA ── */
 .search-bar {
     display: flex;
     gap: 10px;
@@ -150,9 +148,7 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.search-bar input[type="text"]::placeholder {
-    color: #999;
-}
+.search-bar input[type="text"]::placeholder { color: #999; }
 
 .search-bar button {
     padding: 10px 15px;
@@ -170,12 +166,12 @@ body {
     background-color: #FFFFFF0C;
     transform: translateY(-1px);
 }
-/* ------------------------- */
 
+/* ── CONTAINER ── */
 .exoplanets-container {
-    height: calc(100% - 100px); /* Ajusta a altura para compensar a barra de pesquisa */
+    height: calc(100% - 100px);
     padding-bottom: 20px;
-    overflow-y: auto; /* ESTE É O ÚNICO LUGAR COM SCROLL */
+    overflow-y: auto;
 }
 
 .exoplanets-list {
@@ -184,26 +180,13 @@ body {
     padding: 0 10px 0 0;
 }
 
-/* ESTILIZAÇÃO DA BARRA DE ROLAGEM (ADAPTADA DO CÓDIGO 2) */
-.exoplanets-container::-webkit-scrollbar {
-    width: 8px;
-}
+/* Scrollbar */
+.exoplanets-container::-webkit-scrollbar { width: 8px; }
+.exoplanets-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
+.exoplanets-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+.exoplanets-container::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
 
-.exoplanets-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-}
-
-.exoplanets-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-}
-
-.exoplanets-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-/* ESTILOS DO ACORDEÃO */
+/* ── ACORDEÃO ── */
 .acordeao-item {
     margin-bottom: 12px;
     border-radius: 8px;
@@ -229,27 +212,16 @@ body {
     transform: translateY(-1px);
 }
 
-.nome-planeta {
-    font-size: 1.2em;
-    color: var(--color_text--);
-}
-
-.icone-expansao {
-    font-size: 1.5em;
-    transition: transform 0.3s;
-    color: var(--highlight-color);
-}
+.nome-planeta { font-size: 1.2em; color: var(--color_text--); }
+.icone-expansao { font-size: 1.5em; transition: transform 0.3s; color: var(--highlight-color); }
 
 .acordeao-item.active {
     border-color: var(--highlight-color);
     box-shadow: 0 0 10px rgba(77, 208, 225, 0.4);
 }
 
-.acordeao-item.active .icone-expansao {
-    transform: rotate(45deg);
-}
+.acordeao-item.active .icone-expansao { transform: rotate(45deg); }
 
-/* CORPO DO ACORDEÃO - CORREÇÃO DE ANIMAÇÃO COM MAX-HEIGHT */
 .acordeao-body {
     max-height: 0;
     overflow: hidden;
@@ -263,7 +235,6 @@ body {
     padding: 15px 20px 20px 20px;
 }
 
-/* Conteúdo interno do acordeão */
 .detalhes-basicos {
     display: flex;
     flex-wrap: wrap;
@@ -271,23 +242,11 @@ body {
     margin: 15px 0;
 }
 
-.detalhes-basicos p {
-    flex: 1 1 45%;
-    font-size: 0.95em;
-    color: #ccc;
-}
+.detalhes-basicos p { flex: 1 1 45%; font-size: 0.95em; color: #ccc; }
+.detalhes-basicos strong { color: var(--highlight-color); font-weight: 700; }
 
-.detalhes-basicos strong {
-    color: var(--highlight-color);
-    font-weight: 700;
-}
+.acordeao-acoes { display: flex; justify-content: flex-end; }
 
-.acordeao-acoes {
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* Botão */
 .btn-saber-mais {
     background-color: var(--highlight-color);
     color: black;
@@ -298,21 +257,193 @@ body {
     transition: background-color 0.2s, transform 0.2s;
 }
 
-.btn-saber-mais:hover {
-    background-color: white;
-    transform: translateY(-2px);
-}
-/* ESTILO PARA A MENSAGEM DE ERRO/NENHUM RESULTADO */
+.btn-saber-mais:hover { background-color: white; transform: translateY(-2px); }
+
 .mensagem-sem-resultados {
     text-align: center;
-    color: #999; /* Cor clara para contraste no fundo escuro */
+    color: #999;
     font-size: 1.2em;
     padding: 30px 0;
     margin-top: 20px;
     border: 1px dashed rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
-.icon_mini{
-    width: 36px;
-    height: 36px;
+
+.icon_mini { width: 36px; height: 36px; }
+
+/* ── DOWNLOAD ── */
+.botao_download {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 500;
+    transition: all 0.3s ease;
+}
+
+.botao_download:hover { background-color: rgba(255,255,255,0.2); transform: translateY(-3px); }
+.botao-download-icone { width: 30px; height: 30px; }
+
+.aviso-box {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background-color: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 15px 20px;
+    z-index: 500;
+    min-width: 250px;
+    color: white;
+}
+
+.aviso-box p { margin-top: 0; margin-bottom: 10px; font-size: 14px; }
+.aviso-botoes-container { display: flex; justify-content: flex-end; gap: 10px; }
+
+.botao-sim, .botao-nao {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.botao-sim { border-color: #28a745; }
+.botao-nao { border-color: #dc3545; }
+.botao-sim:hover { background-color: #28a745; }
+.botao-nao:hover { background-color: #dc3545; }
+
+/* ════════════════════════════════
+   BREAKPOINTS RESPONSIVOS
+   ════════════════════════════════ */
+
+/* Tablet (max 1024px) */
+@media screen and (max-width: 1024px) {
+    .frame .genesis-logo { width: 150px; height: 65px; left: 30px; }
+    .frame .header { top: 25px; }
+    .frame .header-nav { gap: 25px; }
+    .frame .div { font-size: 20px; }
+    .frame .text-wrapper { font-size: 16px; }
+    .exoplanets-section { width: 85%; }
+}
+
+/* Mobile (max 768px) */
+@media screen and (max-width: 768px) {
+    .frame .genesis-logo {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 15px;
+        width: 130px;
+        height: 56px;
+    }
+
+    /* Navbar igual ao comparar — barra fixa no rodapé */
+    .frame .header {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        transform: none;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .frame .navbar {
+        gap: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .frame .div,
+    .frame .text-wrapper  {
+    margin-inline: auto;
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .text-wrapper a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    transition: width 0.3s;
+    }
+
+    .text-wrapper a:hover::before { width: 100%; }
+
+    .frame .div { font-size: 11px; }
+    .frame .text-wrapper { font-size: 11px; }
+
+    .frame .rectangle {
+        top: 100px;
+        width: 95%;
+        border-radius: 20px;
+        min-height: calc(100vh - 180px);
+    }
+
+    .frame .text-wrapper-2 {
+        top: 115px;
+        font-size: 18px;
+    }
+
+    .exoplanets-section {
+        top: 150px;
+        width: 90%;
+        height: calc(100vh - 230px);
+        padding-top: 20px;
+        padding-bottom: 70px;
+        position: absolute;
+    }
+
+    .search-bar { margin: 10px auto 20px auto; }
+
+    .acordeao-header { padding: 12px 15px; }
+    .nome-planeta { font-size: 1em; }
+
+    .botao_download { width: 50px; height: 50px; bottom: 20px; right: 15px; }
+    .aviso-box { min-width: 200px; right: 15px; }
+}
+
+/* Mobile pequeno (max 480px) */
+@media screen and (max-width: 480px) {
+    .frame .header-nav { gap: 10px; }
+    .frame .div { font-size: 14px; }
+    .frame .text-wrapper { font-size: 12px; }
+    .frame .text-wrapper-2 { font-size: 16px; }
+
+    .exoplanets-section { width: 92%; }
+
+    .search-bar input[type="text"] { font-size: 0.9em; padding: 8px 10px; }
+    .nome-planeta { font-size: 0.95em; }
+    .detalhes-basicos p { flex: 1 1 100%; }
+
+    .mensagem-sem-resultados { font-size: 1em; }
 }

@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "flask": "^0.2.10",
+    "gunicorn": "^0.0.1-security",
+    "vercel": "^32.3.0"
+  }
+}

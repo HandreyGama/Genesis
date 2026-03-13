@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-    name='PycharmProjects',
+    name='Genesis',
     version='',
     packages=[''],
     url='',
     license='',
     author='handrey',
     author_email='',
-    description=''
+    description='',
 )

@@ -2,241 +2,128 @@ html, body {
     margin: 0;
     padding: 0;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-
     font-family: "Poppins", Helvetica;
     color: white;
+    min-height: 100vh;
 }
+
 body {
     background-image: url("/static/img/background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-
+/* ── LOGO ── */
 .genesis-logo {
-  position: absolute;
-  top: 50px;
-  left: 73px;
-  right: auto;
-  width: 211px;
-  height: 91px;
-  aspect-ratio: 2.31;
-  background-image: url(https://c.animaapp.com/aPetIHpm/img/genesislogo--2--1@2x.png);
-  background-size: cover;
-  background-position: 50% 50%;
-  animation: fadeIn 5s;
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    width: 180px;
+    height: 78px;
+    background-image: url(https://c.animaapp.com/aPetIHpm/img/genesislogo--2--1@2x.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    animation: fadeIn 5s;
+    z-index: 100;
 }
+
 .genesis-logo a {
     display: block;
     width: 100%;
     height: 100%;
     transition: all 0.3s ease;
 }
-.genesis-logo:hover {
-    transition: all 0.3s ease;
-    transform: translateY(-3px);
-}
-.texto-de-efeito {
-  position: absolute;
-  top: 316px;
-  left: 100px;
-  width: 623px;
-  height: 213px;
-  animation: fadeIn 5s;
-}
-.text-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 34.74%;
-  top: 22.07%;
-  left: 0;
-  font-family: "Poppins", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 64px;
-  letter-spacing: 0.50px;
-  line-height: 44px;
-  animation: fadeIn 5s;
-}
-.div {
-  position: absolute;
-  width: 95.67%;
-  height: 63.38%;
-  top: 50.23%;
-  left: 0;
-  font-family: "Poppins", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0.50px;
-  line-height: 44px;
-}
+
+.genesis-logo:hover { transform: translateY(-3px); }
+
+/* ── NAVBAR ── */
 .navbar {
-  display: flex;
-  width: fit-content;
-  height: 52px;
-  align-items: center;
-  justify-content: space-between;
-  position: absolute;
-  top: 62px;
-  right: 73px;
-  left: auto;
-  transform: none;
-  transition: all 0.3s ease;
-  animation: fadeIn 5s;
-  gap: 50px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    right: 5%;
+    gap: 40px;
+    z-index: 100;
+    animation: fadeIn 5s;
 }
-.text-wrapper-2 {
-  text-decoration: none;
-  position: relative;
-  width: fit-content;
-  font-family: "Poppins", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: 17.2px;
-    margin: 30px;
-  transition: all 0.3s ease;
-}
-.text-wrapper-2:hover {
-    transform: translateY(-3px);
-    text-decoration-thickness: 2px;
-}
-.text-wrapper-2::before {
-    transform: translateY(-3px);
-    content: "";
-    background-color: #A6A6A6;
+
+.text-wrapper-2,
+.text-wrapper-3,
+.navbar a {
+    font-family: "Poppins", Helvetica, sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    text-decoration: none;
     position: relative;
-    width: fit-content;
-    font-family: "Poppins", Helvetica;
-    font-weight: 500;
-    color: #ffffff;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: 17.2px;
-    white-space: nowrap;
-    transition: transform 0.3s ease;
-    transform: scaleY(0);
-}
-.text-wrapper-2:hover::before {
-    transform: scaleY(1);
-}
-.text-wrapper-3 {
-  position: relative;
-  width: fit-content;
-  font-family: "Poppins", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 30.6px;
-  letter-spacing: 0;
-  line-height: 26.3px;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-    text-decoration-line: none;
-}
-.text-wrapper-3:hover {
-    transform: translateY(-5px);
-}
-.text-wrapper-3::before {
-  position: relative;
-  width: fit-content;
-  font-family: "Poppins", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 30.6px;
-  letter-spacing: 0;
-  line-height: 20vw;
-  white-space: nowrap;
-  content: "";
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.3s ease;
-}
-.text-wrapper-3:hover::before {
-    transform: scaleY(1);
-}
-.explore {
-  position: absolute;
-  top: 570px;
-  left: 58px;
-  width: 226px;
-  height: 80px;
-  display: flex;
-}
-.navegar {
-  margin-top: 18px;
-  width: 167px;
-  height: 44px;
-  margin-left: 51px;
-  font-family: "Poppins", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0.50px;
-  line-height: 44px;
-  white-space: nowrap;
-  transition: 0.4s;
-  border-radius: 5px;
-  animation: fadeIn 5s;
-}
-.navegar:hover{
-  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
-  background: #d9d9d9;
-}
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+    transition: color 0.3s ease;
+    margin: 0;
+    background-color: transparent;
 }
 
-
-:root {
-    --card-bg-base: #D5D5D5;
-    --text-color: black;
-    --highlight-color: black;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --separator-color:black;
+.text-wrapper-2::before,
+.text-wrapper-3::before,
+.navbar a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    transition: width 0.3s ease;
+    transform: none;
+    top: auto;
 }
 
+.text-wrapper-2:hover::before,
+.text-wrapper-3:hover::before,
+.navbar a:hover::before { width: 100%; }
 
+/* ── CARROSSEL ── */
 .carousel-visuals-wrapper {
     width: 100%;
-    height: 270px;
-
+    height: 320px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30vh;
+    margin-top: 160px;
     overflow: hidden;
 }
 
 .carousel-visuals {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     position: absolute;
-    right: 40vh;
+    left: 0;
+    width: 100%;
+    justify-content: flex-start;
     transition: transform 0.5s ease-in-out;
 }
 
 .planet-slide {
     position: relative;
-    margin: 0 30px;
+    margin: 0 80px;
     transition: all 0.5s ease-in-out;
     opacity: 0.5;
     transform: scale(0.8);
     cursor: pointer;
     flex-shrink: 0;
-    z-index: ;
-
 }
-
 
 .planet-slide h2 {
     color: white;
@@ -249,243 +136,229 @@ body {
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s;
+    white-space: nowrap;
 }
 
-.planet-slide planet {
-    width: 200px;
-    height: auto;
-    display: block;
-
-}
-.planet-slide .painel-planet{
+.planet-slide .painel-planet {
     position: absolute;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 12px;
     width: 100%;
     gap: 10px;
-    background-color: black;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
     z-index: 20;
-
     top: 50%;
     left: 50%;
-
-
     transform: translate(-50%, -50%);
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    min-width: 180px;
 }
-
 
 .painel-planet.mostrar {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
-.label_planet{
+
+.label_planet {
     text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85em;
+    opacity: 0.9;
+    margin-bottom: 8px;
 }
-.painel-planet .btn_compare, .btn_sabermais{
+
+.btn_compare,
+.btn_sabermais {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-
+    gap: 12px;
     color: white;
-    background-color: black;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px;
+    cursor: pointer;
+    width: 100%;
 }
-.icon_mini{
-    width: 36px;
-    height: 36px;
+
+.btn_compare:hover,
+.btn_sabermais:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-color: white;
 }
-.btn_compare:hover{
-    background-color: #333333;
-    transition: ease-out,0.3ms;
-}
-.btn_sabermais:hover{
-     background-color: #333333;
-    transition: ease-out,0.3ms;
-}
-.btn_sabermais a, a:visited{
+
+.btn_sabermais a,
+.btn_sabermais a:visited {
     text-decoration: none;
     color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
+.btn_compare p { margin: 0; font-size: 0.85em; }
+.btn_sabermais p { margin: 0; font-size: 0.85em; }
+
+.btn_compare.selecionado {
+    background-color: rgba(220, 53, 69, 0.3);
+    border-color: #dc3545;
+}
+
+.btn_compare.selecionado:hover { background-color: rgba(220, 53, 69, 0.5); }
+
+.icon_mini { width: 28px; height: 28px; flex-shrink: 0; }
+
+/* ── BOTÕES NAV ── */
 .nav-button {
     border: none;
     background-color: transparent;
     position: absolute;
     top: 50%;
-
+    transform: translateY(-50%);
     transition: all 0.3s ease;
     z-index: 100;
-}
-.nav-button img {
-    width: 90px;
-    height: 90px;
-}
-.prev-button { left: 50px; }
-.next-button { right: 50px; }
-.nav-button:hover{
-    transform: translateY(-20px);
+    cursor: pointer;
 }
 
+.nav-button img {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));
+}
+
+.prev-button { left: calc(50% - 240px); }
+.next-button { right: calc(50% - 240px); }
+
+.nav-button:hover { transform: translateY(-50%) scale(1.2); }
+
+/* ── DATA CARDS ── */
 .carousel-data-container {
     width: 100%;
     position: relative;
-
-
+    margin-top: 60px;
 }
 
 .planeta-details {
     display: none;
     width: 100%;
-    height: 340px;
     justify-content: center;
-
+    box-sizing: border-box;
 }
 
 .cards-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: stretch;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+    gap: 16px;
+    padding: 20px 0;
+    flex-wrap: nowrap;
 }
-
-
 
 .data-card {
-    background-color: #D5D5D5;
-    border-radius: 10px;
-    margin: 30px;
-    padding: 20px;
-    width: 426px;
-
-    color: var(--text-color);
-    font-family: "Poppins", Helvetica;
-    font-size: 24px;
-    transition: all 0.3s ease;
-
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 12px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-.center-card {
-    background-color: #D5D5D5;
-    color: var(--text-color);
-    border-radius: 10px;
-    font-family: "Poppins", Helvetica;
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
 }
 
 .data-row {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 0;
     display: flex;
-    background-color: #D5D5D5;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 6px solid var(--separator-color);
+    flex-direction: column;
+    gap: 3px;
 }
 
-.data-row:last-child {
-   border-bottom: 6px solid var(--separator-color);
-}
+.data-row:last-child { border-bottom: none; }
 
 .data-label {
-    font-size: 0.9em;
-    font-weight: 400;
-    opacity: 0.8;
+    color: #cccccc;
+    font-weight: 300;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .data-value {
-    color: var(--highlight-color);
-    font-size: 1em;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     font-weight: 600;
+    font-size: 0.9em;
 }
 
-.nome_planeta{
-    font-size: larger;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-    font-weight: bold;
-}
-
+/* ── DOWNLOAD ── */
 .botao_download {
     position: fixed;
     bottom: 30px;
-    left: 30px;
-    z-index: 1000;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
     width: 60px;
     height: 60px;
-    background-color: black;
-    border-radius: 10px;
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: transform 0.3s;
+    z-index: 500;
+    transition: all 0.3s ease;
 }
 
-.botao_download:hover{
-        transform: scale(1.1);
-}
-
-.botao-download-icone {
-    width: 60px;
-    height: 50px;
-}
+.botao_download:hover { background-color: rgba(255,255,255,0.2); transform: translateY(-3px); }
+.botao-download-icone { width: 30px; height: 30px; }
 
 .aviso-box {
     display: none;
-
     position: fixed;
     bottom: 100px;
-    left: 30px;
-    z-index: 1001;
-
-    background-color: rgba(0, 0, 0, 0.85);
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    right: 30px;
+    background-color: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 15px 20px;
+    z-index: 500;
     min-width: 250px;
-    font-family: "Poppins", Helvetica;
+    color: white;
 }
 
-
-.aviso-box p {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-.aviso-botoes-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
+.aviso-box p { margin-top: 0; margin-bottom: 10px; font-size: 14px; }
+.aviso-botoes-container { display: flex; justify-content: flex-end; gap: 10px; }
 
 .botao-sim, .botao-nao {
-
     background-color: transparent;
     border: 1px solid white;
     color: white;
@@ -493,224 +366,18 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.2s, transform 0.2s;
+    transition: background-color 0.2s;
 }
 
+.botao-sim { border-color: #28a745; }
+.botao-nao { border-color: #dc3545; }
+.botao-sim:hover { background-color: #28a745; }
+.botao-nao:hover { background-color: #dc3545; }
 
-.botao-sim {
-    border-color: #28a745;
-}
-.botao-nao {
-    border-color: #dc3545;
-}
-
-.botao-sim:hover {
-    background-color: #28a745;
-}
-
-.botao-nao:hover {
-    background-color: #dc3545;
-}
-
-
-.data-card, .center-card {
-    background-color: rgba(0, 0, 0, 0.75) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important; /* Para Safari/Chrome */
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
-    color: white !important;
-}
-.data-row {
-    background-color: transparent !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-.data-value {
-    color: #ffffff !important; /* Branco puro, bem sexy */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.data-label {
-    color: #cccccc !important;
-    font-weight: 300 !important; /* Puramente viadagem */
-}
-
-/* eu to forçando os cards a ficarem que nem tem la no home, o jeito que eu tava tentando antes n tava dando certo */
-
-.genesis-logo {
-    width: 300px !important;
-    height: 140px !important;
-    background-size: contain !important;
-    top: 40px !important;
-    left: 5% !important;
-    transform: none !important;
-}
-
-.navbar {
-    top: 40px !important;
-    right: 5% !important;
-    gap: 40px !important;
-    align-items: center !important;
-}
-
-.text-wrapper-2,
-.text-wrapper-3,
-.navbar a {
-    font-family: "Poppins", Helvetica, sans-serif !important;
-    color: white !important;
-    font-size: 32px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5) !important;
-    text-decoration: none !important;
-    margin: 0 !important;
-    background-color: transparent !important;
-    position: relative !important;
-    transition: color 0.3s ease !important;
-}
-
-.text-wrapper-2:hover,
-.text-wrapper-3:hover {
-    transform: none !important;
-    text-decoration: none !important;
-}
-
-.text-wrapper-2::before,
-.text-wrapper-3::before,
-.navbar a::before {
-    content: "" !important;
-    position: absolute !important;
-    bottom: -5px !important;
-    left: 0 !important;
-    width: 0 !important;
-    height: 3px !important;
-    background-color: white !important;
-    transition: width 0.3s ease !important;
-
-    /* Resetando transformações loucas do css antigo */
-    transform: none !important;
-    top: auto !important;
-}
-
-.text-wrapper-2:hover::before,
-.text-wrapper-3:hover::before,
-.navbar a:hover::before {
-    width: 100% !important;
-    transform: none !important;
-    background-color: white !important;
-}
-
-.painel-planet {
-    background-color: rgba(0, 0, 0, 0.8) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
-
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6) !important;
-    border-radius: 15px !important;
-
-    color: white !important;
-}
-
-.btn_compare,
-.btn_sabermais {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(5px) !important;
-
-    color: white !important;
-    font-family: "Poppins", sans-serif !important;
-    font-weight: 500 !important;
-    border-radius: 8px !important;
-    transition: all 0.3s ease !important;
-}
-
-.btn_compare:hover,
-.btn_sabermais:hover {
-    background-color: rgba(255, 255, 255, 0.25) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
-    border-color: white !important;
-}
-
-.btn_compare img,
-.btn_sabermais img {
-    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
-}
-
-.label_planet {
-    font-weight: 700 !important;
-    margin-bottom: 10px !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    font-size: 0.9em !important;
-    opacity: 0.9 !important;
-}
-/* --- AJUSTE DAS SETAS DE NAVEGAÇÃO --- */
-.planet-slide {
-    margin: 0 80px !important;
-}
-
-.nav-button img {
-    width: 50px !important;
-    height: 50px !important;
-    filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));
-}
-
-.prev-button {
-    left: calc(50% - 240px) !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-}
-
-.next-button {
-    right: calc(50% - 240px) !important;
-    left: auto !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-}
-
-.nav-button:hover {
-    transform: translateY(-50%) scale(1.2) !important;
-    cursor: pointer;
-}
-
-/* --- CORREÇÃO DE CENTRALIZAÇÃO DO CARROSSEL --- */
-.carousel-visuals {
-    /* Remove a regra antiga que travava o carrossel na direita */
-    right: auto !important;
-    /* Força o carrossel a começar da esquerda */
-    left: 0 !important;
-    /* Não mudar porque ja esta no tamanho certo para o JS ler */
-    width: 100% !important;
-    /* Centralizei */
-    display: flex !important;
-    justify-content: flex-start !important; /* Deixa o JS controlar a posição via Transform */
-}
-
-.checkbox-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 50;
-    background: rgba(0,0,0,0.5);
-    border-radius: 0 0 0 10px;
-    padding: 8px;
-}
-
-.planet-selector {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    transform: scale(1.3);
-    accent-color: #00c3ff;
-}
-
+/* ── COMPARE BAR ── */
 .compare-bar {
     position: fixed;
-    bottom: -100px; /* Escondido inicialmente */
+    bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(20, 20, 20, 0.95);
@@ -724,23 +391,12 @@ body {
     transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 2000;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
 }
 
-.compare-bar.active {
-    bottom: 30px;
-}
-
-.compare-info {
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-}
-
-.compare-info span {
-    color: #00c3ff;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
+.compare-bar.active { bottom: 30px; }
+.compare-info { color: white; font-family: "Poppins", sans-serif; font-weight: 500; }
+.compare-info span { color: #00c3ff; font-weight: bold; font-size: 1.2rem; }
 
 .btn-compare-action {
     padding: 10px 24px;
@@ -765,62 +421,106 @@ body {
     filter: brightness(1.2);
 }
 
-/* REMOVER: As classes .checkbox-wrapper e .planet-selector antigas podem ser apagadas */
-
-/* NOVO: Estilo para o botão quando o planeta está selecionado */
-.btn_compare.selecionado {
-    background-color: rgba(220, 53, 69, 0.3) !important; /* Fundo avermelhado */
-    border-color: #dc3545 !important;
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-.btn_compare.selecionado:hover {
-    background-color: rgba(220, 53, 69, 0.5) !important;
+/* ════════════════════════════════
+   BREAKPOINTS RESPONSIVOS
+   ════════════════════════════════ */
+
+/* Tablet (max 1024px) */
+@media screen and (max-width: 1024px) {
+    .navbar { gap: 25px; }
+    .text-wrapper-2, .text-wrapper-3, .navbar a { font-size: 15px; }
+    .genesis-logo { width: 150px; height: 65px; }
+    .prev-button { left: 15px; }
+    .next-button { right: 15px; }
+    .planet-slide { margin: 0 50px; }
+    .cards-container { gap: 12px; }
 }
 
-.btn_compare p {
-    margin: 0; /* Ajuste fino para o texto alinhar */
+/* Mobile (max 768px) */
+@media screen and (max-width: 768px) {
+
+    /* Logo centralizado */
+    .genesis-logo {
+        width: 130px;
+        height: 55px;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Navbar igual ao comparar — barra fixa no rodapé */
+    .navbar {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        right: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 0;
+        padding: 10px 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        z-index: 1000;
+    }
+
+    .text-wrapper-2, .text-wrapper-3, .navbar a {
+        font-size: 11px;
+        flex: 1;
+        text-align: center;
+        padding: 5px 2px;
+        letter-spacing: 0;
+    }
+
+    /* Carrossel */
+    .carousel-visuals-wrapper {
+        margin-top: 90px;
+        height: 260px;
+    }
+
+    .planet-slide { margin: 0 25px; }
+    .prev-button { left: 5px; }
+    .next-button { right: 5px; }
+    .nav-button img { width: 32px; height: 32px; }
+
+    /* Cards em coluna */
+    .carousel-data-container { margin-top: 30px; }
+
+    .cards-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        padding-bottom: 80px;
+        flex-wrap: nowrap;
+    }
+
+    .data-card { width: 100%; }
+    .data-label { font-size: 0.7em; }
+    .data-value { font-size: 0.85em; }
+
+    /* Compare bar sobe mais para não sobrepor navbar */
+    .compare-bar.active { bottom: 70px; }
+
+    /* Download */
+    .botao_download { bottom: 75px; right: 15px; width: 50px; height: 50px; }
+    .aviso-box { right: 15px; bottom: 135px; min-width: 200px; }
 }
 
-/* Manter a barra flutuante (igual ao anterior) */
-.compare-bar {
-    position: fixed;
-    bottom: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 15px 30px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 2000;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-}
-
-.compare-bar.active {
-    bottom: 30px;
-}
-
-.compare-info { color: white; font-family: "Poppins", sans-serif; }
-.compare-info span { color: #00c3ff; font-weight: bold; font-size: 1.2rem; }
-
-.btn-compare-action {
-    padding: 10px 24px;
-    border-radius: 25px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    transition: all 0.3s;
-    background: #444;
-    color: #888;
-}
-
-.btn-compare-action:not(:disabled) {
-    background: linear-gradient(45deg, #00c3ff, #007bff);
-    color: white;
-    box-shadow: 0 4px 15px rgba(0, 195, 255, 0.4);
+/* Mobile pequeno (max 480px) */
+@media screen and (max-width: 480px) {
+    .genesis-logo { width: 110px; height: 48px; }
+    .text-wrapper-2, .text-wrapper-3, .navbar a { font-size: 10px; }
+    .carousel-visuals-wrapper { height: 350px; margin-top: 80px; }
+    .planet-slide { margin: 0 12px; }
+    .nav-button img { width: 26px; height: 26px; }
+    .icon_mini { width: 22px; height: 22px; }
+    .data-label { font-size: 0.65em; }
+    .data-value { font-size: 0.8em; }
+    .cards-container { width: 100%; }
 }
