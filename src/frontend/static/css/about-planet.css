@@ -437,11 +437,6 @@ body {
     }
 
     /* Tamanhos de fonte legíveis no mobile */
-    .sobre > h1.label_planet { font-size: 1.8em; }
-    .label_planet, .sobre h2 { font-size: 1.1em; margin-top: 15px; }
-    .sobre p, .p-ia { font-size: 14px; line-height: 1.7; }
-    .ia-message, .user-message { font-size: 14px; }
-    .input-chat-ia input { font-size: 15px; }
     .btn-enviar { width: 38px; height: 38px; }
     .btn-enviar img { width: 20px; height: 20px; }
 }
